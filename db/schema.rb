@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320165729) do
+ActiveRecord::Schema.define(version: 20170320221943) do
+
+  create_table "suppliers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "country"
+    t.string   "postal_code"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "category"
+    t.string   "contact"
+    t.text     "observations"
+    t.string   "bank"
+    t.string   "account_number"
+    t.string   "number_branch_bank"
+    t.string   "region"
+    t.string   "last_tax_declaration"
+    t.string   "rfc"
+    t.string   "account_status"
+    t.string   "constitutive_act"
+    t.string   "policies"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
