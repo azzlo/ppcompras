@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @requisition.number %>
+</p>
+
+<p>
+  <strong>Create at:</strong>
+  <%= @requisition.create_at %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @requisition.item %>
+</p>
+
+<p>
+  <strong>Material:</strong>
+  <%= @requisition.material %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @requisition.description %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @requisition.quantity %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @requisition.unit %>
+</p>
+
+<p>
+  <strong>Contact person:</strong>
+  <%= @requisition.contact_person %>
+</p>
+
+<p>
+  <strong>Observations:</strong>
+  <%= @requisition.observations %>
+</p>
+
+<%= link_to 'Edit', edit_requisition_path(@requisition) %> |
+<%= link_to 'Back', requisitions_path %>

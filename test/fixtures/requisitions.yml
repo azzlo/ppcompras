@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  create_at: 2017-03-20
+  item: 1
+  material: MyString
+  description: MyText
+  quantity: 1.5
+  unit: MyString
+  contact_person: MyString
+  observations: MyText
+
+two:
+  number: 1
+  create_at: 2017-03-20
+  item: 1
+  material: MyString
+  description: MyText
+  quantity: 1.5
+  unit: MyString
+  contact_person: MyString
+  observations: MyText

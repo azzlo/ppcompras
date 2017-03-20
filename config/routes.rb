@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   resources :offers
+  resources :requisitions
   resources :suppliers
   devise_for :users
   resources :users
