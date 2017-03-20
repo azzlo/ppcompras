@@ -1,0 +1,62 @@
+<%= form_for(requisition) do |f| %>
+  <% if requisition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(requisition.errors.count, "error") %> prohibited this requisition from being saved:</h2>
+
+      <ul>
+      <% requisition.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.number_field :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :create_at %>
+    <%= f.date_select :create_at %>
+  </div>
+
+  <div class="field">
+    <%= f.label :item %>
+    <%= f.number_field :item %>
+  </div>
+
+  <div class="field">
+    <%= f.label :material %>
+    <%= f.text_field :material %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :unit %>
+    <%= f.text_field :unit %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contact_person %>
+    <%= f.text_field :contact_person %>
+  </div>
+
+  <div class="field">
+    <%= f.label :observations %>
+    <%= f.text_area :observations %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
