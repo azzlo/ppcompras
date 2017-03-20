@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit pricing:</strong>
+  <%= @offer.unit_pricing %>
+</p>
+
+<p>
+  <strong>Delivery days:</strong>
+  <%= @offer.delivery_days %>
+</p>
+
+<p>
+  <strong>Validity:</strong>
+  <%= @offer.validity %>
+</p>
+
+<p>
+  <strong>Observations:</strong>
+  <%= @offer.observations %>
+</p>
+
+<p>
+  <strong>Recommended:</strong>
+  <%= @offer.recommended %>
+</p>
+
+<p>
+  <strong>Credit days:</strong>
+  <%= @offer.credit_days %>
+</p>
+
+<p>
+  <strong>Requisition:</strong>
+  <%= @offer.requisition %>
+</p>
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>

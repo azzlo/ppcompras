@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Offers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Unit pricing</th>
+      <th>Delivery days</th>
+      <th>Validity</th>
+      <th>Observations</th>
+      <th>Recommended</th>
+      <th>Credit days</th>
+      <th>Requisition</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <td><%= offer.unit_pricing %></td>
+        <td><%= offer.delivery_days %></td>
+        <td><%= offer.validity %></td>
+        <td><%= offer.observations %></td>
+        <td><%= offer.recommended %></td>
+        <td><%= offer.credit_days %></td>
+        <td><%= offer.requisition %></td>
+        <td><%= link_to 'Show', offer %></td>
+        <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
+        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Offer', new_offer_path %>

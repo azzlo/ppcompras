@@ -1,0 +1,52 @@
+<%= form_for(offer) do |f| %>
+  <% if offer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
+
+      <ul>
+      <% offer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :unit_pricing %>
+    <%= f.text_field :unit_pricing %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delivery_days %>
+    <%= f.number_field :delivery_days %>
+  </div>
+
+  <div class="field">
+    <%= f.label :validity %>
+    <%= f.date_select :validity %>
+  </div>
+
+  <div class="field">
+    <%= f.label :observations %>
+    <%= f.text_area :observations %>
+  </div>
+
+  <div class="field">
+    <%= f.label :recommended %>
+    <%= f.check_box :recommended %>
+  </div>
+
+  <div class="field">
+    <%= f.label :credit_days %>
+    <%= f.number_field :credit_days %>
+  </div>
+
+  <div class="field">
+    <%= f.label :requisition_id %>
+    <%= f.text_field :requisition_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

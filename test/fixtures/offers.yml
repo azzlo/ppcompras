@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unit_pricing: 1.5
+  delivery_days: 1
+  validity: 2017-03-20
+  observations: MyText
+  recommended: false
+  credit_days: 1
+  requisition: one
+
+two:
+  unit_pricing: 1.5
+  delivery_days: 1
+  validity: 2017-03-20
+  observations: MyText
+  recommended: false
+  credit_days: 1
+  requisition: two

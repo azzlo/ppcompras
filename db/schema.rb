@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320221943) do
+ActiveRecord::Schema.define(version: 20170320232608) do
+
+  create_table "offers", force: :cascade do |t|
+    t.float    "unit_pricing"
+    t.integer  "delivery_days"
+    t.date     "validity"
+    t.text     "observations"
+    t.boolean  "recommended"
+    t.integer  "credit_days"
+    t.integer  "requisition_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["requisition_id"], name: "index_offers_on_requisition_id"
+  end
 
   create_table "suppliers", force: :cascade do |t|
     t.string   "name"
