@@ -11,7 +11,9 @@
   </head>
 
   <body>
-    <%= render 'partials/menu' %>
+    <% if user_signed_in? %>
+      <%= render 'partials/menu' %>
+    <% end %>
     <%= yield %>
 
   </body>
