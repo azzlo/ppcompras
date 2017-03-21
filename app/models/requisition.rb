@@ -1,2 +1,3 @@
 class Requisition < ApplicationRecord
+  
 end
