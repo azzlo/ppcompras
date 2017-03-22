@@ -1,18 +1,23 @@
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text"><%= image_tag "amtedrail-logo", class: "logo-amstedrail" %></li>
-      <li><a href="#">One</a>
-      </li>
-      <li><a href="#">Two</a></li>
-      <li><a href="#">Three</a></li>
-    </ul>
+<% if user_signed_in? %>
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text"><%= image_tag "amtedrail-logo", class: "logo-amstedrail" %></li>
+        <li>
+          <%= link_to "Home", root_path %>
+        </li>
+        <li>
+          <%= link_to "Requisitions", requisitions_path %>
+        </li>
+        <li><a href="#">Two</a></li>
+        <li><a href="#">Three</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li>username@user</li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
   </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <li>username@user</li>
-      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-    </ul>
-  </div>
-</div>
-<a href="#">HOLA!!!!</a>
+<% end %>

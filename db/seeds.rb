@@ -7,3 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #   Add default Admin user
 User.create!({:name => "administrator", :email => "admin@admin", :password => "123456", :password_confirmation => "123456" })
+Requisition.create!(number: 000001,
+                    create_at: Date.today,
+                    item: 10, material: "aaa001",
+                    description: "Material de calidad para electricidad",
+                    quantity: 2,
+                    unit: "Lt",
+                    contact_person: "Joaquin Becerro",
+                    observations: "We need best quality")
