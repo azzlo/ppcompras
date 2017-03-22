@@ -1,0 +1,101 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+@import 'foundation-icons';
+
+.icono-medium{
+  font-size: 50px;
+  color: red;
+}
+
+
+.boton{
+  margin-bottom: 50px;
+}
+
+.columns i{
+  font-size: 25px;
+  color: #008995;
+}
+
+.ch{
+  margin-left: 30px;
+  padding-left: 0px;
+}
+.column-2{
+  margin-bottom: 50px;
+}
+h1{
+  font-size: 2rem;
+  color:#3E423A;
+}
+
+h2{
+  font-size: 1.5rem;
+  color: #6C6E58;
+}
+
+h3{
+  font-size: 1.2rem;
+  color:#6C6E58;
+
+}
+h4{
+  font-size: 2rem;
+  color:#F4F7D9;
+}
+h5{
+  font-size: 1.5rem;
+  color:#A4CFBE;
+}
+h6{
+  font-size: 1.2rem;
+  color:#A4CFBE;
+}
+p{
+  font-size: .95rem;
+  color:#000000;
+
+}
+table{
+  border: 1px solid #6C6E58;
+  padding: 0.2em;
+  font-size: 12px;
+  border-radius: 10px;
+}
+.button{
+  border-radius: 5px;
+  background-color: #008995;
+  color: #F4F7D9;
+  }
+.button:hover{
+  background-color: #A4CFBE;
+  color: #6C6E58;
+}
+.img-logo{
+  margin-top: 15px;
+}
+.formulario{
+  margin-bottom: 100px;
+}
+.footerr{
+
+  background-color: #0E5B95;
+}
+.contenedor-boton-forward{
+  margin-bottom: 100px;
+}

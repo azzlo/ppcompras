@@ -1,16 +1,68 @@
-<h2>Forgot your password?</h2>
+<!-- Contenedor de Logo -->
+<div class="row align-right"> <br>
+  <div class="columns small-3">
+    <figure>
+      <%= image_tag "amtedrail-logo", class: 'img-logo' %>
+    </figure>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
   </div>
+</div>
+<!-- Contenedor de logo -->
+<section class="titulo">
+  <h2>Forgot your password?</h2>
+</section>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+<!-- Form de Login -->
+<section class=".contenedor-boton-forward">
+
+
+    <div class="row align-center">
+  <div class="columns small-3">
+
+    <div class="row formulario">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <div class="row align-middle">
+          <div class="columns small-1">
+            <i class="fi-mail"></i>
+          </div>
+          <div class="columns">
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="contenedor-boton" style="margin-top: 25px;">
+
+      <div class="button actions row small-12 align-center">
+        <%= f.submit "Send me reset password instructions" %>
+      </div>
+    <% end %>
+      <div class="row small-12 align-center">
+          <%= render "devise/shared/links" %>
+      </div>
+    </div>
+
   </div>
-<% end %>
+</div>
+</section>
+  <!-- Form de Login -->
+  <br>
+  <br><br>
+    <!-- footer  -->
+    <footer class="row small-12 footerr align-justify">
 
-<%= render "devise/shared/links" %>
+        <div class="columns">
+            <small >Correo industrial s/n Cd. Sahagun, Hgo <br>
+            Mexico C.P 43998 <br>
+          Tel. 791 91 3 89 13 <br> <a href="#">www.amstedrail.com</a> </small>
+        </div>
+        <div class="columns small-1 align-self-bottom">
+          <i class="fi-trees"></i>
+        </div>
+
+    </footer>
+    <!-- footer   -->
