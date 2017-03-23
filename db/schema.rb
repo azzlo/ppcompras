@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 20170323010829) do
     t.string   "unit"
     t.string   "contact_person"
     t.text     "observations"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.boolean  "active"
-    t.boolean  "pending"
-    t.boolean  "complete"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "active",         default: false
+    t.boolean  "pending",        default: false
+    t.boolean  "complete",       default: false
   end
 
   create_table "suppliers", force: :cascade do |t|

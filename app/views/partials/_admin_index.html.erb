@@ -1,58 +1,60 @@
-<div style="background-color:#2F545D;">
-<div class="row">
-  <div class="columns large-12">
-    <h5 class="text-center">Requisitions Active</h5>
-    <br>
+<div class="primary-container">
+  <div class="row">
+    <div class="columns large-12">
+      <h5 class="text-center">Active Requisitions</h5>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="colums large-9 small-offset-1">
-
-    <table  style="background-color:#9CA9AB;">
-      <thead>
-        <tr>
-          <th width="100">Number Requisition</th>
-          <th width="150">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @requisitions.each do |requisition| %>
+  <div class="row">
+    <div class="colums large-10 small-offset-1">
+      <% if @active_requisitions.count != 0 %>
+        <table  style="background-color:#9CA9AB;">
+          <thead>
+            <tr>
+              <th width="100">Number</th>
+              <th width="150">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @active_requisitions.each do |requisition| %>
+            <tr>
+              <td><%= link_to requisition.number, requisition_path(requisition)  %></td>
+              <td><%= requisition.description %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+      <div class="panel container-padding">
+        <h3 class="text-center">You not have Active Requisitions</h3>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <br>
+  <h5 class="text-center">Pending Requisitions</h5>
+  <div class="row">
+    <div class="colums large-10 small-offset-1">
+      <table style="background-color:#9CA9AB;">
+        <thead>
           <tr>
-            <td><%= link_to requisition.number, requisition_path(requisition)  %></td>
-            <td><%= requisition.description %></td>
+            <th width="100">Number Requisition</th>
+            <th width="150">Description</th>
+            <th width="15">Actions</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
-<br>
-<br>
-<br>
-<h5 class="text-center">Requisitions Pending</h5>
-<br>
-<div class="row">
-  <div class="colums large-9 small-offset-1">
-
-    <table style="background-color:#9CA9AB;">
-      <thead>
-        <tr>
-          <th width="100">Number Requisition</th>
-          <th width="150">Description</th>
-          <th width="15">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @requisitions.each do |requisiton| %>
+        </thead>
+        <tbody>
+          <% @available_requisitions.each do |requisiton| %>
           <tr>
             <td><%= link_to requisiton.number, requisition_path(requisiton) %></td>
             <td><%= requisiton.description %></td>
-            <td class="text-center"><a class="button small" href="#">Send</a></td>
+            <td class="text-center">
+              <%= button_to "To Release", set_active_status_requisition_path(requisiton), class: "button small" %>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 </div>

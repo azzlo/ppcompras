@@ -72,9 +72,9 @@ table{
   border: 1px solid #6C6E58;
   padding: 0.2em;
   font-size: 12px;
-  border-radius: 10px;
+  border-radius: .6em;
   background-color:#9CA9AB;
-  tr:hover{
+  tbody tr:hover{
     background:rgba(156, 169, 171 , .6);
   }
   .button{
@@ -107,7 +107,35 @@ border: 0px;
   padding: 0;
 
   .logo-amstedrail{
-    padding: 0;
+    padding: 0 1.5em 0 0;
     height: 32px;
   }
+}
+
+.menu{
+  .active{
+    background-color: #006965;
+    color: white;
+    font-size: bold;
+  }
+}
+
+.panel{
+  background-color: #f5f5f5;
+  border-radius: .3em;
+}
+
+.primary-container{
+  padding-top: 2em;
+  padding-bottom: 3em;
+  background-color:#2F545D;
+
+  h3{
+    margin: 0;
+    font-weight: bold;
+  }
+}
+
+.container-padding{
+  padding: 1em;
 }

@@ -1,5 +1,5 @@
 class RequisitionsController < ApplicationController
-  before_action :set_requisition, only: [:show, :edit, :update, :destroy]
+  before_action :set_requisition, only: [:show, :edit, :update, :set_active_status, :destroy]
 
   # GET /requisitions
   # GET /requisitions.json
@@ -44,6 +44,19 @@ class RequisitionsController < ApplicationController
       if @requisition.update(requisition_params)
         format.html { redirect_to @requisition, notice: 'Requisition was successfully updated.' }
         format.json { render :show, status: :ok, location: @requisition }
+      else
+        format.html { render :edit }
+        format.json { render json: @requisition.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def set_active_status
+    @requisition.active = true;
+
+    respond_to do |format|
+      if @requisition.save
+        format.html { redirect_to root_path, notice: 'Requisition was opened to suppliers and email was sent to suppliers'}
       else
         format.html { render :edit }
         format.json { render json: @requisition.errors, status: :unprocessable_entity }
