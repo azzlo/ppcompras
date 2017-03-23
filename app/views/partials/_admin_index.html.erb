@@ -16,14 +16,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>123456789</td>
-          <td>Elementos quimicos para tratamiento de materiales</td>
-        </tr>
-        <tr>
-          <td>987654321</td>
-          <td>Articulos electricos para instalacion de nuevos cubiculos</td>
-        </tr>
+        <% @requisitions.each do |requisition| %>
+          <tr>
+            <td><%= link_to requisition.number, requisition_path(requisition)  %></td>
+            <td><%= requisition.description %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
@@ -45,16 +43,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>123456789</td>
-          <td>Elementos quimicos para tratamiento de materiales</td>
-          <td class="text-center"><a class="button" href="#">Send</a></td>
-        </tr>
-        <tr>
-          <td>987654321</td>
-          <td>Articulos electricos para instalacion de nuevos cubiculos</td>
-          <td class="text-center"><a class="button" href="#">Send</a></td>
-        </tr>
+        <% @requisitions.each do |requisiton| %>
+          <tr>
+            <td><%= link_to requisiton.number, requisition_path(requisiton) %></td>
+            <td><%= requisiton.description %></td>
+            <td class="text-center"><a class="button" href="#">Send</a></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
