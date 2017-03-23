@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170323051402) do
 
   create_table "offers", force: :cascade do |t|
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170323051402) do
     t.boolean  "active",         default: false
     t.boolean  "pending",        default: false
     t.boolean  "complete",       default: false
+
   end
 
   create_table "suppliers", force: :cascade do |t|
