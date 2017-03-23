@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170323010829) do
+=======
+ActiveRecord::Schema.define(version: 20170323051402) do
+>>>>>>> 744e3724f497e7acbfa5c6c854fdd8364dc3d10f
 
   create_table "offers", force: :cascade do |t|
     t.float    "unit_pricing"
@@ -37,11 +41,19 @@ ActiveRecord::Schema.define(version: 20170323010829) do
     t.string   "unit"
     t.string   "contact_person"
     t.text     "observations"
+<<<<<<< HEAD
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.boolean  "active"
     t.boolean  "pending"
     t.boolean  "complete"
+=======
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "active",         default: false
+    t.boolean  "pending",        default: false
+    t.boolean  "complete",       default: false
+>>>>>>> 744e3724f497e7acbfa5c6c854fdd8364dc3d10f
   end
 
   create_table "suppliers", force: :cascade do |t|
@@ -51,7 +63,6 @@ ActiveRecord::Schema.define(version: 20170323010829) do
     t.string   "country"
     t.string   "postal_code"
     t.string   "phone"
-    t.string   "email"
     t.string   "category"
     t.string   "contact"
     t.text     "observations"
@@ -64,8 +75,20 @@ ActiveRecord::Schema.define(version: 20170323010829) do
     t.string   "account_status"
     t.string   "constitutive_act"
     t.string   "policies"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.index ["email"], name: "index_suppliers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_suppliers_on_reset_password_token", unique: true
   end
 
   create_table "users", force: :cascade do |t|

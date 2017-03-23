@@ -32,8 +32,8 @@
             <i class="fi-torsos-male-female icon-medium"></i>
           </div>
           <div class="columns">
-            <%= f.label :User %>
-            <%= f.email_field :email, autofocus: true %>
+            <%= f.label :name %>
+            <%= f.text_field :name, autofocus: true %>
           </div>
         </div>
         <div class="row align-middle">
@@ -42,7 +42,7 @@
             <i class="fi-key"></i>
           </div>
           <div class="columns">
-            <%= f.label :Password %>
+            <%= f.label :password %>
             <%= f.password_field :password, autocomplete: "off" %>
           </div>
         </div>
@@ -57,7 +57,6 @@
     </div>
 
     <div class="contenedor-boton" style="margin-top: 25px;">
-
       <div class="actions row small-12 align-center">
         <%= f.submit "Sign in", class: "button" %>
       </div>
@@ -65,8 +64,12 @@
       <div class="row small-12 align-center">
           <%= render "devise/shared/links" %>
       </div>
+      <div class="row small-12 align-center">
+        <p>
+          Are you <strong>Supplier</strong>? <%= link_to "Click here", new_supplier_session_path %>
+        </p>
+      </div>
     </div>
-
   </div>
 </div>
 
