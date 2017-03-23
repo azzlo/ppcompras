@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
 
   def index
     if supplier_signed_in?
-      redirect_to root_path
+      redirect_to welcome_index_supplier_path
     else
       authenticate_user!
       @active_requisitions = Requisition.where(active: true)
@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
 
   def index_supplier
     if user_signed_in?
-      redirect_to root_path
+      redirect_to  root_path
     else
       authenticate_supplier!
     end
