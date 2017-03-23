@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :suppliers
   root 'welcome#index'
+  get 'welcome/index_supplier'
   devise_for :users
   resources :users
   resources :offers
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       post 'set_active_status'
     end
   end
+  devise_for :suppliers
   resources :suppliers
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
