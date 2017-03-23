@@ -7,7 +7,6 @@ class CreateSuppliers < ActiveRecord::Migration[5.0]
       t.string :country
       t.string :postal_code
       t.string :phone
-      t.string :email
       t.string :category
       t.string :contact
       t.text :observations
