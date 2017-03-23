@@ -11,7 +11,13 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
+    <% if notice %>
+      <p id="notice"><%= notice %></p>
+    <% elsif alert %>
+      <p id="alert"><%= alert %></p>
+    <% end %>
+
+    <% if user_signed_in? || supplier_signed_in? %>
       <%= render 'partials/menu' %>
     <% end %>
     <%= yield %>
