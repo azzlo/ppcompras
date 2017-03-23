@@ -1,11 +1,11 @@
-<body style="background-color:#8C162E;">
+<body style="background-color:#2F545D;">
 
 
 <div class="row">
   <div class="colums large-12">
 <br>
   <h6>Requisition</h6>
-    <table class="hover" class="unstriped" style="background-color:#C7C9A2;" >
+    <table class="hover" class="unstriped" style="background-color:#9CA9AB;" >
       <thead>
         <tr>
           <th width="100">Number Requisition</th>
@@ -21,15 +21,15 @@
       </thead>
       <tbody>
         <tr>
-          <td>123456789</td>
-          <td>2017/02/11</td>
-          <td>20</td>
-          <td>234534</td>
-          <td>Elementos quimicos para tratamiento de materiales</td>
-          <td>12</td>
-          <td>UA</td>
-          <td>Adrian</td>
-          <td> </td>
+          <td><%= @requisition.number %></td>
+          <td><%= @requisition.create_at %></td>
+          <td><%= @requisition.item %></td>
+          <td><%= @requisition.material %></td>
+          <td><%= @requisition.description %></td>
+          <td><%= @requisition.quantity %></td>
+          <td><%= @requisition.unit %></td>
+          <td><%= @requisition.contact_person %></td>
+          <td><%= @requisition.observations %> </td>
         </tr>
       </tbody>
     </table>
@@ -40,7 +40,7 @@
   <div class="colums large-8 small-offset-2">
 <br>
     <h6>Selected supplier</h6>
-    <table style="background-color:#C7C9A2;" class="hover">
+    <table style="background-color:#9CA9AB;" class="hover">
       <thead>
         <tr>
           <th width="100">Number Suplier</th>
@@ -69,15 +69,15 @@
 
 <br>
 <div class="row">
-  <div class="colums large-2 small-offset-1">
+  <div class="colums large-2 small-offset-2">
     <h6>Offer</h6>
   </div>
-  <div class="colums large-2 small-offset-9">
+  <div class="colums large-2 small-offset-8">
     <a class="button" href="#">General Report</a>
   </div>
 <div class="row">
-  <div class="colums large-10 small-offset-1">
-    <table style="background-color:#C7C9A2;" class="hover tabla">
+  <div class="colums large-10 small-offset-2">
+    <table style="background-color:#9CA9AB;" class="hover tabla">
       <thead>
         <tr>
           <th width="100">Number supplier</th>
