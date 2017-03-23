@@ -69,7 +69,6 @@ p{
   color:#000000;
 }
 table{
-
   border: 1px solid #6C6E58;
   padding: 0.2em;
   font-size: 12px;
@@ -80,6 +79,8 @@ table{
   }
   .button{
     margin: 0;
+    padding-top: .4em;
+    padding-bottom: .4em;
   }
 }
 .button{
@@ -101,4 +102,12 @@ border: 0px;
 }
 .footer a {
   color: #a0ebd0;
+}
+.menu-text{
+  padding: 0;
+
+  .logo-amstedrail{
+    padding: 0;
+    height: 32px;
+  }
 }
