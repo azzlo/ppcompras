@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170323010829) do
-=======
+
 ActiveRecord::Schema.define(version: 20170323051402) do
->>>>>>> 744e3724f497e7acbfa5c6c854fdd8364dc3d10f
 
   create_table "offers", force: :cascade do |t|
     t.float    "unit_pricing"
@@ -41,19 +38,12 @@ ActiveRecord::Schema.define(version: 20170323051402) do
     t.string   "unit"
     t.string   "contact_person"
     t.text     "observations"
-<<<<<<< HEAD
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.boolean  "active"
-    t.boolean  "pending"
-    t.boolean  "complete"
-=======
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.boolean  "active",         default: false
     t.boolean  "pending",        default: false
     t.boolean  "complete",       default: false
->>>>>>> 744e3724f497e7acbfa5c6c854fdd8364dc3d10f
+
   end
 
   create_table "suppliers", force: :cascade do |t|
