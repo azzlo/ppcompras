@@ -58,3 +58,5 @@ gem 'devise'
 
 #gema para iconos de foundation
 gem 'foundation-icons-sass-rails'
+
+gem 'wicked_pdf'
