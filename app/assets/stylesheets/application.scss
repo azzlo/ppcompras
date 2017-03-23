@@ -74,17 +74,13 @@ table{
   padding: 0.2em;
   font-size: 12px;
   border-radius: 10px;
-}
-
-.active{
-  background: #2f545d;
-  color: white;
-}
-.menu-text{
-  padding: 0;
-}
-.logo-amstedrail{
-  height: 34px;
+  background-color:#9CA9AB;
+  tr:hover{
+    background:rgba(156, 169, 171 , .6);
+  }
+  .button{
+    margin: 0;
+  }
 }
 .button{
   border-radius: 5px;
