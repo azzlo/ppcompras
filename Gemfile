@@ -58,3 +58,7 @@ gem 'devise'
 
 #gema para iconos de foundation
 gem 'foundation-icons-sass-rails'
+
+#Gema para convertir formato HTML a PDF
+gem 'prawn'
+gem 'wicked_pdf'
