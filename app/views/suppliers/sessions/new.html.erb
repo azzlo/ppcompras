@@ -1,26 +1,92 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+<!-- Contenedor de Logo -->
+<br>
+<div class="row align-justify">
+  <div class="columns small-3">
+    <figure>
+      <%= image_tag "amtedrail-logo", class: 'img-logo' %>
+    </figure>
+
   </div>
+  <div class="columns small-3">
+    <figure>
+      <%= image_tag "asf", class: 'img-logo' %>
+    </figure>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
   </div>
+</div>
+<!-- Contenedor de logo -->
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+
+<!-- Form de Login -->
+
+<div class="row align-center">
+  <div class="columns small-3">
+    <div class="row align-center">
+      <h1>Login Suppliers</h1> <br> <br>
+
     </div>
-  <% end -%>
+    <div class="row formulario">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="row align-middle">
+          <div class="columns small-1">
+            <i class="fi-torsos-male-female icon-medium"></i>
+          </div>
+          <div class="columns">
+            <%= f.label :name %>
+            <%= f.text_field :name, autofocus: true %>
+          </div>
+        </div>
+        <div class="row align-middle">
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+          <div class="columns small-1">
+            <i class="fi-key"></i>
+          </div>
+          <div class="columns">
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+        </div>
+
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="row align-center small-10 large-expand">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end -%>
+    </div>
+
+    <div class="contenedor-boton" style="margin-top: 25px;">
+      <div class="actions row small-12 align-center">
+        <%= f.submit "Log in", class: "button" %>
+      </div>
+    <% end %>
+      <div class="row small-12 align-center">
+          <%= render "suppliers/shared/links" %>
+      </div>
+      <div class="row small-12 align-center">
+        <p>
+          Are you <strong>Admin</strong>? <%= link_to "Click here", new_user_session_path %>
+        </p>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
 
-<%= render "suppliers/shared/links" %>
+  <!-- Form de Login -->
+<br> <br><br>
+  <!-- footer Login -->
+  <footer class="row small-12 footerr align-center">
+
+      <div class="columns">
+          <small >Correo industrial s/n Cd. Sahagun, Hgo <br>
+          Mexico C.P 43998 <br>
+        Tel. 791 91 3 89 13 <br> <a href="#">www.amstedrail.com</a> </small>
+      </div>
+      <div class="columns small-1 align-self-bottom">
+        <i class="fi-trees"></i>
+      </div>
+
+  </footer>
+  <!-- footer LOgin  -->
