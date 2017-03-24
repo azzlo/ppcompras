@@ -11,6 +11,11 @@ class OffersController < ApplicationController
   # GET /offers/1
   # GET /offers/1.json
   def show
+        respond_to do |format|
+          format.html
+          format.json
+          format.pdf {render template: 'offers/specificreport', pdf:'SpecificReport'}
+      end
   end
 
   # GET /offers/new
