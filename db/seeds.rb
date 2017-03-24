@@ -7,16 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #   Add default Admin user
 User.create!({:name => "administrator", :email => "admin@admin", :password => "123456", :password_confirmation => "123456" })
-Supplier.create!({:name => "111001", :email => "111001@supplier", :password => "111001", :password_confirmation => "111001" })
-Supplier.create!({:name => "111002", :email => "111002@supplier", :password => "111002", :password_confirmation => "111002" })
-Supplier.create!({:name => "111003", :email => "111003@supplier", :password => "111003", :password_confirmation => "111003" })
-Supplier.create!({:name => "111004", :email => "111004@supplier", :password => "111004", :password_confirmation => "111004" })
-Supplier.create!({:name => "111005", :email => "111005@supplier", :password => "111005", :password_confirmation => "111005" })
-Supplier.create!({:name => "111006", :email => "111006@supplier", :password => "111006", :password_confirmation => "111006" })
-Supplier.create!({:name => "111007", :email => "111007@supplier", :password => "111007", :password_confirmation => "111007" })
-Supplier.create!({:name => "111008", :email => "111008@supplier", :password => "111008", :password_confirmation => "111008" })
-Supplier.create!({:name => "111009", :email => "111009@supplier", :password => "111009", :password_confirmation => "111009" })
-Supplier.create!({:name => "111010", :email => "111010@supplier", :password => "111010", :password_confirmation => "111010" })
+Supplier.create!({:number => "111001", :name => "Fenix Ferreteria S.A de S.V.", :email => "111001@supplier", :password => "111001", :password_confirmation => "111001" })
+Supplier.create!({:number => "111002", :name => "SteelSeries", :email => "111002@supplier", :password => "111002", :password_confirmation => "111002" })
+Supplier.create!({:number => "111003", :name => "Microsoft", :email => "111003@supplier", :password => "111003", :password_confirmation => "111003" })
+Supplier.create!({:number => "111004", :name => "Quimicos mialegria", :email => "111004@supplier", :password => "111004", :password_confirmation => "111004" })
+Supplier.create!({:number => "111005", :name => "Azzlo", :email => "111005@supplier", :password => "111005", :password_confirmation => "111005" })
+Supplier.create!({:number => "111006", :name => "Henkel", :email => "111006@supplier", :password => "111006", :password_confirmation => "111006" })
+Supplier.create!({:number => "111007", :name => "Condumex", :email => "111007@supplier", :password => "111007", :password_confirmation => "111007" })
+Supplier.create!({:number => "111008", :name => "IGESA", :email => "111008@supplier", :password => "111008", :password_confirmation => "111008" })
+Supplier.create!({:number => "111009", :name => "HP", :email => "111009@supplier", :password => "111009", :password_confirmation => "111009" })
+Supplier.create!({:number => "111010", :name => "CISCO", :email => "111010@supplier", :password => "111010", :password_confirmation => "111010" })
 Requisition.create!(number: 100001,
                     create_at: Date.today,
                     item: 10, material: "aaa001",

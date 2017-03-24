@@ -60,3 +60,5 @@ gem 'devise'
 gem 'foundation-icons-sass-rails'
 
 gem 'wicked_pdf'
+
+gem 'wkhtmltopdf-binary'

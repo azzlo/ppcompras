@@ -5,11 +5,18 @@ class RequisitionsController < ApplicationController
   # GET /requisitions.json
   def index
     @requisitions = Requisition.all
+
   end
 
   # GET /requisitions/1
   # GET /requisitions/1.json
   def show
+    
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf {render template: 'requisitions/generalreport', pdf:'GeneralReport'}
+    end
   end
 
   # GET /requisitions/new
