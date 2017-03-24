@@ -15,12 +15,9 @@ class RequisitionsController < ApplicationController
      format.html
      format.json
      format.pdf {render template: 'requisitions/generalreport', pdf:'GeneralReport'}
+
    end
-#    respond_to do |format|
-#      format.html
-#      format.json
-#      format.pdf {render template: 'requisitions/specificreport', pdf:'SpecificReport'}
-#  end
+
   end
 
   # GET /requisitions/new
