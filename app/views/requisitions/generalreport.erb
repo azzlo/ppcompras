@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>General report</title>
+    <%= wicked_pdf_stylesheet_link_tag 'application' %>
+    <%= wicked_pdf_stylesheet_link_tag 'foundation_and_overrides' %>
+  </head>
+  <body>
+    <!-- Contenedor de Logo --><br>
+    <div class="row " style="height: 50px;margin-bottom:1em;">
+        <figure style="float:left; height: 10px;">
+          <%= wicked_pdf_image_tag "amtedrail-logo", class: 'img-logo' %>
+        </figure>
+        <figure  style="float:right;">
+          <%= wicked_pdf_image_tag "asf", class: 'img-logo' %>
+        </figure>
+    </div>
+    <!-- Contenedor de logo -->
+    <!--realizando el codigo en tablas para realizar el reporte general en pdf-->
+    <!--datos generales de la requesicion a la cual se esta ofertando-->
+    <br>
+    <br>
+    <br>
+    <div class="crow">
+      <div clas="large-10 columns offset-1">
+      <table class="hover tabla" >
+        <thead>
+          <tr>
+            <th width="150"><h1>Requisition Offers</h1></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div>
+      <p><strong>Date:</strong> <%= Date.today%></p>
+      <p><strong>Numer Requisition:</strong> <%=@requisition.number%></p>
+      <p><strong>Description:</strong> <%=@requisition.description%></p>
+      <p><strong>Contact Person:</strong> <%=@requisition.contact_person%></p>
+    </div>
+    <br>
+    <br>
+
+    <!-- tabla con el contenido de las ofertas realizadas sobre la requisicion-->
+    <div class="row">
+      <div class="large-10 columns offset-1">
+        <table class="hover">
+          <thead>
+            <tr>
+              <th width="150">Number Supplier</th>
+              <th width="150">Name Supplier</th>
+              <th width="150">Delivery days</th>
+              <th width="150">Unit pricing</th>
+              <th width ="150">Total cost</th>
+              <th width="150">Credit days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @requisition.offers.each do |offer| %>
+            <tr>
+              <td><%= offer.supplier.number%></td>
+              <td><%= offer.supplier.name%></td>
+              <td><%= offer.delivery_days%></td>
+              <td><%= offer.unit_pricing%></td>
+              <td><%= offer.requisition.quantity * offer.unit_pricing%></td>
+              <td><%= offer.credit_days%></td>
+            </tr>
+            <%end%>
+          </tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>

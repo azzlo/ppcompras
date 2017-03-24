@@ -60,3 +60,7 @@ gem 'devise'
 gem 'foundation-icons-sass-rails'
 
 gem 'foundation-datetimepicker-rails'
+
+gem 'wicked_pdf'
+
+gem 'wkhtmltopdf-binary'
