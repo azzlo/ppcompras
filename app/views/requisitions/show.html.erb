@@ -65,14 +65,14 @@
 
   <br>
   <div class="row">
-    <div class="colums large-2 small-offset-2">
+    <div class="colums large-2 small-offset-1">
       <h6>Offer</h6>
     </div>
-    <div class="colums large-2 small-offset-8">
+    <div class="colums large-2 small-offset-9">
       <a class="button" href="http://localhost:3000/requisitions/1.pdf">General Report</a>
     </div>
     <div class="row">
-      <div class="colums large-10 small-offset-2">
+      <div class="colums large-10 small-offset-1">
         <table style="background-color:#9CA9AB;" >
           <thead>
             <tr>
@@ -86,48 +86,17 @@
             </tr>
           </thead>
           <tbody>
+            <%= @requisition.offers.each do |offer|%>
             <tr>
-              <td>creo que no hicimos la relacion</td>
-              <td>500</td>
-              <td>5</td>
-              <td>2017/08/02</td>
-              <td>30</td>
-              <td>todo el material en existencia</td>
+              <td> <%= offer.supplier.number %></td>
+              <td> <%= offer.unit_pricing%></td>
+              <td> <%= offer.delivery_days%></td>
+              <td> <%= offer.validity%></td>
+              <td> <%= offer.credit_days%></td>
+              <td> <%= offer.observations%></td>
               <td class="text-center"><a class="button" href="#">PDF</a></td>
             </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td>creo que no hicimos la relacion</td>
-              <td>501</td>
-              <td>10</td>
-              <td>2017/08/02</td>
-              <td>0</td>
-              <td>todo el material en existencia</td>
-              <td class="text-center"><a class="button" href="#">PDF</a></td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td>creo que no hicimos la relacion</td>
-              <td>490</td>
-              <td>15</td>
-              <td>2017/08/02</td>
-              <td>15</td>
-              <td>todo el material en existencia</td>
-              <td class="text-center"><a class="button" href="#">PDF</a></td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td>creo que no hicimos la relacion</td>
-              <td>450</td>
-              <td>30</td>
-              <td>2017/08/02</td>
-              <td>0</td>
-              <td>todo el material en existencia</td>
-              <td class="text-center"><a class="button" href="#">PDF</a></td>
-            </tr>
+            <%end%>
           </tbody>
         </table>
       </div>
