@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :requisitions do
     member do
       post 'set_active_status'
+      get 'show_supplier'
     end
+    resources :offers
   end
   devise_for :suppliers
   resources :suppliers
