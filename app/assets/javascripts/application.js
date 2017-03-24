@@ -13,6 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require foundation-datepicker
+//= require foundation-datepicker.es
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(document).ready(function(){
+  $(function(){ $(document).foundation(); });
+
+  $('.datepicker').fdatepicker({
+    language: 'es',
+    leftArrow: '<i class="fi-rewind"></i>',
+    rightArrow: '<i class="fi-fast-forward"></i>',
+    closeButton: true,
+    closeIcon: '<i class="fi-x"></i>',
+    minDate: 0,
+    dateFormat: 'dd-mm-YYYY'
+  });
+
+});

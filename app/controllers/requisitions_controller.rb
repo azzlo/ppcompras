@@ -1,5 +1,5 @@
 class RequisitionsController < ApplicationController
-  before_action :set_requisition, only: [:show, :edit, :update, :set_active_status, :destroy]
+  before_action :set_requisition, only: [:show, :show_supplier, :edit, :update, :set_active_status, :destroy]
 
   # GET /requisitions
   # GET /requisitions.json
@@ -15,13 +15,15 @@ class RequisitionsController < ApplicationController
      format.html
      format.json
      format.pdf {render template: 'requisitions/generalreport', pdf:'GeneralReport'}
+
    end
-#    respond_to do |format|
-#      format.html
-#      format.json
-#      format.pdf {render template: 'requisitions/specificreport', pdf:'SpecificReport'}
-#  end
+
   end
+
+  def show_supplier
+    @offer = @requisition.offers.build
+  end
+
 
   # GET /requisitions/new
   def new

@@ -50,7 +50,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>creo nos falta este numero porque es el que jala del SAP</td>
+            <td>100001</td>
             <td>SEPA</td>
             <td>México</td>
             <td>5513489245</td>
@@ -65,14 +65,14 @@
 
   <br>
   <div class="row">
-    <div class="colums large-2 small-offset-1">
+    <div class="colums large-2 small-offset-2">
       <h6>Offer</h6>
     </div>
     <div class="colums large-2 small-offset-9">
       <a class="button" href="http://localhost:3000/requisitions/1.pdf">General Report</a>
     </div>
     <div class="row">
-      <div class="colums large-10 small-offset-1">
+      <div class="colums medium-12 medium-offset-2">
         <table style="background-color:#9CA9AB;" >
           <thead>
             <tr>
@@ -86,7 +86,7 @@
             </tr>
           </thead>
           <tbody>
-            <%= @requisition.offers.each do |offer|%>
+            <% @requisition.offers.each do |offer| %>
             <tr>
               <td> <%= offer.supplier.number %></td>
               <td> <%= offer.unit_pricing%></td>
