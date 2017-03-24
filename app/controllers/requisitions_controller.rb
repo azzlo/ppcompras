@@ -11,12 +11,16 @@ class RequisitionsController < ApplicationController
   # GET /requisitions/1
   # GET /requisitions/1.json
   def show
-    
-    respond_to do |format|
-      format.html
-      format.json
-      format.pdf {render template: 'requisitions/generalreport', pdf:'GeneralReport'}
-    end
+     respond_to do |format|
+     format.html
+     format.json
+     format.pdf {render template: 'requisitions/generalreport', pdf:'GeneralReport'}
+   end
+#    respond_to do |format|
+#      format.html
+#      format.json
+#      format.pdf {render template: 'requisitions/specificreport', pdf:'SpecificReport'}
+#  end
   end
 
   # GET /requisitions/new

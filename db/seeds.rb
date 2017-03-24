@@ -20,7 +20,7 @@ Supplier.create!({:number => "111010", :name => "CISCO", :email => "111010@suppl
 Requisition.create!(number: 100001,
                     create_at: Date.today,
                     item: 10, material: "aaa001",
-                    description: "Material de calidad para electricidad",
+                    description: "Material de calidad para electricidad-1",
                     quantity: 2,
                     unit: "Lt",
                     contact_person: "Joaquin Becerro",
