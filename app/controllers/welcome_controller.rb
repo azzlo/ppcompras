@@ -16,6 +16,8 @@ class WelcomeController < ApplicationController
       redirect_to  root_path
     else
       authenticate_supplier!
+
+      @available_requisitions = Requisition.where(active: true)
     end
   end
 end

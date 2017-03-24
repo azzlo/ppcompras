@@ -1,5 +1,5 @@
 class RequisitionsController < ApplicationController
-  before_action :set_requisition, only: [:show, :edit, :update, :set_active_status, :destroy]
+  before_action :set_requisition, only: [:show, :show_supplier, :edit, :update, :set_active_status, :destroy]
 
   # GET /requisitions
   # GET /requisitions.json
@@ -11,6 +11,11 @@ class RequisitionsController < ApplicationController
   # GET /requisitions/1.json
   def show
   end
+
+  def show_supplier
+    @offer = @requisition.offers.build
+  end
+
 
   # GET /requisitions/new
   def new
