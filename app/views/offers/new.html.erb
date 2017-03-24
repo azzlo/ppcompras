@@ -81,76 +81,76 @@
                 </td>
               </tr>
 
-              <tr>
-                <td colspan="8">
-
-
-                    <%= form_for [@requisition, @offer] do |f| %>
-                    <% if @offer.errors.any? %>
-                    <div id="error_explanation">
-                      <h2><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
-
-                      <ul>
-                        <% @offer.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                        <% end %>
-                      </ul>
-                    </div>
-                    <% end %>
-
-
-                    <div class="row">
-                      <div class="column medium-2 align-self-bottom">
-                        <div class="field">
-                          <%= f.label :unit_pricing %>
-                          <%= f.text_field :unit_pricing %>
-                        </div>
-                      </div>
-
-                      <div class="column medium-2 align-self-bottom">
-                        <div class="field">
-                          <%= f.label :delivery_days %>
-                          <%= f.number_field :delivery_days %>
-                        </div>
-                      </div>
-
-                      <div class="column medium-2 align-self-bottom">
-                        <div class="field">
-                          <%= f.label :validity %>
-                          <%= f.text_field :validity, class: "datepicker" %>
-                        </div>
-                      </div>
-                      <div class="column medium-2 align-self-bottom">
-                        <div class="field">
-                          <%= f.label :credit_days %>
-                          <%= f.number_field :credit_days %>
-                        </div>
-                      </div>
-
-                      <div class="column medium-3 align-self-bottom">
-                        <div class="field">
-                          <%= f.check_box :recommended %>
-                          <%= f.label :recommended %>
-                        </div>
-                      </div>
-
-                      <div class="column medium-10 align-self-bottom">
-                        <div class="field">
-                          <%= f.label :observations %>
-                          <%= f.text_field :observations %>
-                        </div>
-                      </div>
-
-                      <div class="column meidum-2 align-self-middle">
-                        <div class="actions">
-                          <%= f.submit "Offer", class: "button  expanded" %>
-                        </div>
-                      </div>
-                    <% end %>
-                  </div>
-                </td>
-              </tr>
             <% end %>
+            <tr>
+              <td colspan="8">
+
+
+                <%= form_for [@requisition, @offer] do |f| %>
+                <% if @offer.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
+
+                  <ul>
+                    <% @offer.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+                <% end %>
+
+
+                <div class="row">
+                  <div class="column medium-2 align-self-bottom">
+                    <div class="field">
+                      <%= f.label :unit_pricing %>
+                      <%= f.text_field :unit_pricing %>
+                    </div>
+                  </div>
+
+                  <div class="column medium-2 align-self-bottom">
+                    <div class="field">
+                      <%= f.label :delivery_days %>
+                      <%= f.number_field :delivery_days %>
+                    </div>
+                  </div>
+
+                  <div class="column medium-2 align-self-bottom">
+                    <div class="field">
+                      <%= f.label :validity %>
+                      <%= f.text_field :validity, class: "datepicker" %>
+                    </div>
+                  </div>
+                  <div class="column medium-2 align-self-bottom">
+                    <div class="field">
+                      <%= f.label :credit_days %>
+                      <%= f.number_field :credit_days %>
+                    </div>
+                  </div>
+
+                  <div class="column medium-3 align-self-bottom">
+                    <div class="field">
+                      <%= f.check_box :recommended %>
+                      <%= f.label :recommended %>
+                    </div>
+                  </div>
+
+                  <div class="column medium-10 align-self-bottom">
+                    <div class="field">
+                      <%= f.label :observations %>
+                      <%= f.text_field :observations %>
+                    </div>
+                  </div>
+
+                  <div class="column meidum-2 align-self-middle">
+                    <div class="actions">
+                      <%= f.submit "Offer", class: "button  expanded" %>
+                    </div>
+                  </div>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

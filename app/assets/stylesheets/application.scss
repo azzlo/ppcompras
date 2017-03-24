@@ -50,8 +50,6 @@ body{
 h1{
   font-size: 2rem;
   color:#3E423A;
-  font-family: 'Fira Sans Condensed', sans-serif;
-
 }
 
 h2{
@@ -110,10 +108,7 @@ border: 0px;
 .footerr {
   background-color: #2F545D;
   color: #69bda7;
-  width: 100%;
-  bottom: 0;
-  position: absolute;
-  // height: 65px;
+  margin-bottom: 8.5%;
 }
 .footer a {
   color: #a0ebd0;
@@ -153,8 +148,4 @@ border: 0px;
 
 .container-padding{
   padding: 1em;
-}
-.img-logo
-{
-  height: 50px;
 }
