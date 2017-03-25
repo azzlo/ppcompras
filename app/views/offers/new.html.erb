@@ -3,7 +3,7 @@
     <div class="colums large-12">
       <h6 class="text-center">Requisition Info</h6>
       <table class="unstriped" style="background-color:#9CA9AB;" >
-        <thead>
+        <thead class="thead-black">
           <tr>
             <th width="100">Number</th>
             <th width="150">Date</th>
@@ -41,16 +41,15 @@
           <h6>My offers</h6>
         </div>
         <div class="colums end">
-          <a class="button" href="#">General Report</a>
+          <a class="button small" href="#">General Report</a>
         </div>
       </div>
     </div>
     <div class="column small-12">
       <div class="colums large-10 small-offset-1">
         <table style="background-color:#9CA9AB;" >
-          <thead>
+          <thead class="thead-black">
             <tr>
-              <th>Number supplier</th>
               <th>Unit pricing</th>
               <th>Delivery days</th>
               <th>Validity</th>
@@ -64,14 +63,13 @@
             <% if !@requisition_clean.offers.blank? %>
               <% @requisition_clean.offers.each do |offer| %>
                 <tr>
-                  <td>?????</td>
                   <td><%= offer.unit_pricing %></td>
                   <td><%= offer.delivery_days %></td>
                   <td><%= offer.validity %></td>
                   <td><%= offer.credit_days %></td>
                   <td><%= offer.recommended %></td>
                   <td><%= offer.observations %></td>
-                  <td class="text-center"><a class="button" href="#">PDF</a></td>
+                  <td class="text-center"><a class="button small" href="#">PDF</a></td>
                 </tr>
               <% end %>
             <% else %>
@@ -144,7 +142,7 @@
 
                   <div class="column meidum-2 align-self-middle">
                     <div class="actions">
-                      <%= f.submit "Offer", class: "button  expanded" %>
+                      <%= f.submit "Add Offer", class: "button  expanded" %>
                     </div>
                   </div>
                   <% end %>

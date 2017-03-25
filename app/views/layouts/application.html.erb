@@ -14,9 +14,15 @@
 
   <body>
     <% if notice %>
-      <p id="notice"><%= notice %></p>
+    <div class=" success small callout flashmessage" data-closable>
+      <button class="close-button" data-close>&times;</button>
+      <p id="notice" class="text-center"><%= notice %></p>
+    </div>
     <% elsif alert %>
-      <p id="alert"><%= alert %></p>
+    <div class=" warning small callout flashmessage" data-closable>
+      <button class="close-button" data-close>&times;</button>
+      <p id="alert" class="text-center"><%= alert %></p>
+    </div>
     <% end %>
 
     <% if user_signed_in? || supplier_signed_in? %>

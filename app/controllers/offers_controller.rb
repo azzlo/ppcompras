@@ -15,6 +15,7 @@ class OffersController < ApplicationController
 
   # GET /offers/new
   def new
+    authenticate_supplier!
     @offer = @requisition.offers.build
   end
 

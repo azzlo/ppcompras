@@ -4,5 +4,8 @@ class Supplier < ApplicationRecord
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :offers
+  has_many :requisitions, through: :offers
+
   validates :name, uniqueness: { case_sensitive: false }
 end
