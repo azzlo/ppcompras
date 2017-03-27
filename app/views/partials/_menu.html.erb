@@ -34,14 +34,16 @@
           <%= link_to "Home", root_path if controller_name != "welcome" %>
         </li>
         <li>
-          <%= link_to "Requisitions", offers_path, class: "active" if controller_name == "requisitions"%>
-          <%= link_to "Requisitions", offers_path if controller_name != "requisitions"%>
+
         </li>
       </ul>
     </div>
     <div class="top-bar-right">
       <ul class="menu">
-        <li><%= current_supplier.name %></li>
+        <li>
+          <%= current_supplier.name %>
+          <i>(<%= current_supplier.number %>)</i>
+        </li>
         <li><%= link_to "Logout", destroy_supplier_session_path, method: :delete %></li>
       </ul>
     </div>

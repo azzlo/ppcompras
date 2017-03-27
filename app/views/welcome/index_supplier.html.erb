@@ -16,20 +16,23 @@
       <table>
         <thead>
           <tr>
-            <th id="state">State</th>
-            <th id="dogs">Dogs</th>
-            <th id="cats">Cats</th>
-            <th id="rabbits">Rabbits</th>
+            <th width="120">Requisition</th>
+            <th>Description</th>
+            <th id="cats">???</th>
+            <th id="rabbits">???</th>
           </tr>
         </thead>
         <tbody>
-          <% if @requisitions_to_suply.count < 0 %>
-            <tr>
-              <td id="california" headers="state">California</td>
-              <td headers="dogs california">3</td>
-              <td headers="cats california">1</td>
-              <td headers="rabbits california">10</td>
-            </tr>
+          <% if !@requisitions_to_suply.nil? %>
+            <% @requisitions_to_suply.each do |requisition| %>
+              <tr>
+                <td>
+                  <%= link_to requisition.number, requisition_path(requisition)%>
+                <td ><%= requisition.description %></td>
+                <td >1</td>
+                <td >10</td>
+              </tr>
+            <% end %>
           <% else %>
             <tr>
               <td colspan="4">

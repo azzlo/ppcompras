@@ -110,6 +110,16 @@ table{
   font-size: .9em;
   border-radius: .6em;
   background-color:#9CA9AB;
+
+  tbody.disable{
+    tr{
+      background: #b6b4b4;
+      td{
+        color: #505050;
+      }
+    }
+  }
+
   tbody tr:hover{
     background:rgba(156, 169, 171 , .6);
   }

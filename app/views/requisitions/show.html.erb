@@ -39,12 +39,12 @@
       <table>
         <thead class="thead-black">
           <tr>
-            <th width="100">Number</th>
-            <th width="150">Name</th>
-            <th width="150">City</th>
-            <th width="150">Phone</th>
-            <th width="150">Email</th>
-            <th width="150">Category</th>
+            <th width="100">Supplier</th>
+            <th width="110">Unit Price</th>
+            <th width="50">Delivery</th>
+            <th width="100">Validity</th>
+            <th width="80">Credit</th>
+            <th>Description</th>
             <th width="150">Contact Person</th>
           </tr>
         </thead>
@@ -53,9 +53,9 @@
             <tr>
               <td> <%= @selected_offer.supplier.number %></td>
               <td> <%= @selected_offer.unit_pricing%></td>
-              <td> <%= @selected_offer.delivery_days%></td>
+              <td> <%= @selected_offer.delivery_days%> days</td>
               <td> <%= @selected_offer.validity%></td>
-              <td> <%= @selected_offer.credit_days%></td>
+              <td> <%= @selected_offer.credit_days%> days</td>
               <td> <%= @selected_offer.observations%></td>
               <td class="text-center"><a class="button" href="#">PDF</a></td>
             </tr>
@@ -97,30 +97,62 @@
                 <th width="15">Actions</th>
               </tr>
             </thead>
-            <tbody>
-              <% supplier_number = nil %>
-              <% @requisition.offers.each do |offer| %>
-              <tr>
-                <% if offer.supplier.number != supplier_number %>
-                  <td> <strong><%= offer.supplier.number %></strong><%=  %></td>
-                  <% supplier_number = offer.supplier.number %>
-                <% else %>
-                  <td></td>
-                <% end %>
-                <td>
-                  <%= "<i class='fi-star icon-medium fav-enable'></i>".html_safe if offer.recommended %>
-                </td>
-                <td> $ <%= offer.unit_pricing%>0</td>
-                <td> <%= offer.delivery_days%> days</td>
-                <td> <%= offer.validity%></td>
-                <td> <%= offer.credit_days%> days</td>
-                <td> <%= offer.observations%></td>
-                <td class="text-center">
-                  <a class="button" href="#">PDF</a>
-                  <%= button_to "Take Offer", set_selected_requisition_offer_path(@requisition, offer), class: "button" %>
-                </td>
-              </tr>
-              <%end%>
+              <% if @selected_offer.nil? %>
+              <tbody>
+                <% supplier_number = nil %>
+                <% @requisition.offers.each do |offer| %>
+                <tr>
+                  <% if offer.supplier.number != supplier_number %>
+                    <td> <strong><%= offer.supplier.number %></strong><%=  %></td>
+                    <% supplier_number = offer.supplier.number %>
+                  <% else %>
+                    <td></td>
+                  <% end %>
+                  <td>
+                    <%= "<i class='fi-star icon-medium fav-enable'></i>".html_safe if offer.recommended %>
+                  </td>
+                  <td> $ <%= offer.unit_pricing%>0</td>
+                  <td> <%= offer.delivery_days%> days</td>
+                  <td> <%= offer.validity%></td>
+                  <td> <%= offer.credit_days%> days</td>
+                  <td> <%= offer.observations%></td>
+                  <td class="text-center">
+                    <a class="button" href="#">PDF</a>
+                    <%= button_to "Take Offer", set_selected_requisition_offer_path(@requisition, offer), class: "button" %>
+                  </td>
+                </tr>
+                <%end%>
+              </tbody>
+              <% else %>
+              <tbody class="disable">
+                <% supplier_number = nil %>
+                <% @requisition.offers.each do |offer| %>
+                <tr>
+                  <% if offer.supplier.number != supplier_number %>
+                    <td> <strong><%= offer.supplier.number %></strong><%=  %></td>
+                    <% supplier_number = offer.supplier.number %>
+                  <% else %>
+                    <td></td>
+                  <% end %>
+                  <td>
+                    <%= "<i class='fi-star icon-medium fav-enable'></i>".html_safe if offer.recommended %>
+                  </td>
+                  <td> $ <%= offer.unit_pricing%>0</td>
+                  <td> <%= offer.delivery_days%> days</td>
+                  <td> <%= offer.validity%></td>
+                  <td> <%= offer.credit_days%> days</td>
+                  <td> <%= offer.observations%></td>
+                  <td class="text-center">
+                    <% if offer.selected %>
+                      <span class="badge success">
+                        <i class="fi-check icon-small"></i>
+                      </span>
+                    <% end %>
+                  </td>
+                </tr>
+                <%end%>
+                </tbody>
+              <% end %>
             </tbody>
           </table>
         </div>
