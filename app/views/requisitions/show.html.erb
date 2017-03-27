@@ -84,42 +84,6 @@
 
   <hr>
   <div class="row">
-<<<<<<< HEAD
-    <div class="colums large-2 small-offset-2">
-      <h6>Offer</h6>
-    </div>
-    <div class="colums large-2 small-offset-9">
-      <a class="button" href="http://localhost:3000/requisitions/2.pdf">General Report</a>
-    </div>
-    <div class="row">
-      <div class="colums medium-12 medium-offset-2">
-        <table style="background-color:#9CA9AB;" >
-          <thead>
-            <tr>
-              <th width="100">Number supplier</th>
-              <th width="100">Unit pricing</th>
-              <th width="150">Delivery days</th>
-              <th width="150">Validity</th>
-              <th width="150">Credit days</th>
-              <th width="150">Observations</th>
-              <th width="15">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @requisition.offers.each do |offer| %>
-            <tr>
-              <td> <%= offer.supplier.number %></td>
-              <td> <%= offer.unit_pricing%></td>
-              <td> <%= offer.delivery_days%></td>
-              <td> <%= offer.validity%></td>
-              <td> <%= offer.credit_days%></td>
-              <td> <%= offer.observations%></td>
-              <td class="text-center"><a class="button" href="#">PDF</a></td>
-            </tr>
-            <%end%>
-          </tbody>
-        </table>
-=======
     <div class="columns small-10 small-offset-1">
       <div class="row align-justify">
         <div class="colums large-2">
@@ -203,7 +167,6 @@
             </tbody>
           </table>
         </div>
->>>>>>> ff9acaebd57d99d970e9316bf624b6e4b941e42d
       </div>
     </div>
   </div>
