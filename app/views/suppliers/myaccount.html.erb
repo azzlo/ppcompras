@@ -1,0 +1,128 @@
+<div class="row">
+  <div class="column small-12">
+    <h1>My information</h1>
+    <p>
+      <strong>Name:</strong>
+      <%= current_supplier.name %>
+    </p>
+
+    <div class="column small-12">
+      <div class="row">
+        <div class="column small-6">
+          <p>
+            <strong>Address:</strong>
+            <%= current_supplier.address %>
+          </p>
+        </div>
+        <div class="column small-3">
+          <p>
+            <strong>City:</strong>
+            <%= current_supplier.city %>
+          </p>
+        </div>
+        <div class="column small3">
+          <p>
+            <strong>Country:</strong>
+            <%= current_supplier.country %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column small-12">
+      <div class="row">
+        <div class="column small-4">
+          <p>
+            <strong>Postal code:</strong>
+            <%= current_supplier.postal_code %>
+          </p>
+        </div>
+        <div class="column small-4">
+          <p>
+            <strong>Phone:</strong>
+            <%= current_supplier.phone %>
+          </p>
+        </div>
+        <div class="column small-4">
+          <p>
+            <strong>Email:</strong>
+            <%= current_supplier.email %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <p>
+      <strong>Category:</strong>
+      <%= current_supplier.category %>
+    </p>
+
+    <p>
+      <strong>Contact:</strong>
+      <%= current_supplier.contact %>
+    </p>
+
+    <p>
+      <strong>Observations:</strong>
+      <%= current_supplier.observations %>
+    </p>
+    <div class="row">
+      <div class="column small-3">
+        <p>
+          <strong>Bank:</strong>
+          <%= current_supplier.bank %>
+        </p>
+      </div>
+      <div class="column small-3">
+        <p>
+          <strong>Account number:</strong>
+          <%= current_supplier.account_number %>
+        </p>
+      </div>
+      <div class="column small-3">
+        <p>
+          <strong>Number branch bank:</strong>
+          <%= current_supplier.number_branch_bank %>
+        </p>
+      </div>
+      <div class="column small-3">
+        <p>
+          <strong>Region:</strong>
+          <%= current_supplier.region %>
+        </p>
+      </div>
+    </div>
+
+    <p>
+      <strong>Last tax declaration:</strong>
+      <%= current_supplier.last_tax_declaration %>
+    </p>
+
+    <p>
+      <strong>Rfc:</strong>
+      <%= current_supplier.rfc %>
+    </p>
+
+    <p>
+      <strong>Account status:</strong>
+      <%= current_supplier.account_status %>
+    </p>
+
+    <p>
+      <strong>Constitutive act:</strong>
+      <%= current_supplier.constitutive_act %>
+    </p>
+
+    <p>
+      <strong>Policies:</strong>
+      <%= current_supplier.policies %>
+    </p>
+    <div class="column-small-12 text-right">
+      <%= link_to 'Edit Info', edit_supplier_path(current_supplier), class: "button large primary" %>
+    </div>
+  </div>
+</div>

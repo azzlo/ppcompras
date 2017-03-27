@@ -19,5 +19,10 @@ Rails.application.routes.draw do
   end
   devise_for :suppliers
   resources :suppliers
+  resource :supplier do
+    collection do
+      get 'myaccount'
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
