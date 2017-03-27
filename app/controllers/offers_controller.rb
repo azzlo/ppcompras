@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy, :set_as_recommended, :set_selected]
-  before_action :set_requisition, only: [:new, :create, :set_as_recommended, :set_selected]
+  before_action :set_requisition, only: [:show, :new, :create, :set_as_recommended, :set_selected]
 
   # GET /offers
   # GET /offers.json
@@ -27,6 +27,7 @@ class OffersController < ApplicationController
   # POST /offers
   # POST /offers.json
   def create
+    @supplier_offers = @requisition.offers.where(supplier_id: current_supplier.id)
     @offer = @requisition.offers.build(offer_params)
     @offer.supplier = current_supplier
     @offer.recommended = true if @requisition.offers.count == 0
