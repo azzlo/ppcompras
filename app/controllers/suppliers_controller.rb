@@ -1,10 +1,10 @@
 class SuppliersController < ApplicationController
   before_action :set_supplier, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
 
   # GET /suppliers
   # GET /suppliers.json
   def index
+    :authenticate_user!
     @suppliers = Supplier.all
   end
 
@@ -13,13 +13,18 @@ class SuppliersController < ApplicationController
   def show
   end
 
-  # GET /suppliers/new
-  def new
-    @supplier = Supplier.new
+  def myaccount
+    @supplier = current_supplier
   end
+
+  # GET /suppliers/new
+  #def new
+    # @supplier = Supplier.new
+  # end
 
   # GET /suppliers/1/edit
   def edit
+    :authenticate_supplier!
   end
 
   # POST /suppliers
@@ -43,7 +48,7 @@ class SuppliersController < ApplicationController
   def update
     respond_to do |format|
       if @supplier.update(supplier_params)
-        format.html { redirect_to @supplier, notice: 'Supplier was successfully updated.' }
+        format.html { redirect_to myaccount_supplier_path, notice: 'Supplier was successfully updated.' }
         format.json { render :show, status: :ok, location: @supplier }
       else
         format.html { render :edit }
