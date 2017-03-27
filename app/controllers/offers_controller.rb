@@ -35,7 +35,7 @@ class OffersController < ApplicationController
         offer.recommended = false
         offer.save
       end
-      @offer.recommended = true
+      @offer.recommended = true if @requisition.offers.count == 1
     end
 
     respond_to do |format|
