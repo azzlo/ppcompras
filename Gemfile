@@ -64,3 +64,5 @@ gem 'foundation-datetimepicker-rails'
 gem 'wicked_pdf'
 
 gem 'wkhtmltopdf-binary'
+
+gem 'carrierwave'

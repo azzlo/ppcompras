@@ -99,27 +99,27 @@
 
     <p>
       <strong>Last tax declaration:</strong>
-      <%= current_supplier.last_tax_declaration %>
+      <%= link_to "<i class='fi-page-export icon-medium'></i>#{current_supplier.last_tax_declaration.file.filename}".html_safe, "#{current_supplier.last_tax_declaration.url}" %>
     </p>
 
     <p>
       <strong>Rfc:</strong>
-      <%= current_supplier.rfc %>
+      <%= link_to "<i class='fi-page-export icon-medium'></i>#{current_supplier.rfc.file.filename}".html_safe, "#{current_supplier.rfc.url}" %>
     </p>
 
     <p>
       <strong>Account status:</strong>
-      <%= current_supplier.account_status %>
+      <%= link_to "<i class='fi-page-export icon-medium'></i>#{current_supplier.account_status.file.filename}".html_safe, "#{current_supplier.account_status.url}" %>
     </p>
 
     <p>
       <strong>Constitutive act:</strong>
-      <%= current_supplier.constitutive_act %>
+      <%= link_to "<i class='fi-page-export icon-medium'></i>#{current_supplier.constitutive_act.file.filename}".html_safe, "#{current_supplier.constitutive_act.url}" %>
     </p>
 
     <p>
       <strong>Policies:</strong>
-      <%= current_supplier.policies %>
+      <%= link_to "<i class='fi-page-export icon-medium'></i>#{current_supplier.policies.file.filename}".html_safe, "#{current_supplier.policies.url}" %>
     </p>
     <div class="column-small-12 text-right">
       <%= link_to 'Edit Info', edit_supplier_path(current_supplier), class: "button large primary" %>
