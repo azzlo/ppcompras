@@ -6,6 +6,7 @@
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Number</th>
       <th>Create at</th>
       <th>Item</th>
@@ -21,6 +22,17 @@
   <tbody>
     <% @requisitions.each do |requisition| %>
       <tr>
+        <td>
+          <% if requisition.active %>
+            <i class="fi-play icon-medium" style="color: blue;"></i>
+          <% elsif requisition.pending %>
+            <i class="fi-shopping-cart icon-medium" style="color: orange;"></i>
+          <% elsif requisition.complete %>
+            <i class="fi-check icon-medium" style="color: green;"></i>
+          <% else %>
+            <i class="fi-stop icon-medium" style="color: grey;"></i>
+          <% end %>
+        </td>
         <td><%= link_to requisition.number, requisition_path(requisition) %></td>
         <td><%= requisition.create_at %></td>
         <td><%= requisition.item %></td>

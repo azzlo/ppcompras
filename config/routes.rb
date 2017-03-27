@@ -8,8 +8,14 @@ Rails.application.routes.draw do
     member do
       post 'set_active_status'
       get 'show_supplier'
+      post 'set_as_received'
     end
-    resources :offers
+    resources :offers do
+      member do
+        get 'set_as_recommended'
+        post 'set_selected'
+      end
+    end
   end
   devise_for :suppliers
   resources :suppliers

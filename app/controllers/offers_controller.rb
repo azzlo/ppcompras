@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
-  before_action :set_offer, only: [:show, :edit, :update, :destroy]
-  before_action :set_requisition, only: [:new, :create]
+  before_action :set_offer, only: [:show, :edit, :update, :destroy, :set_as_recommended, :set_selected]
+  before_action :set_requisition, only: [:new, :create, :set_as_recommended, :set_selected]
 
   # GET /offers
   # GET /offers.json
@@ -15,6 +15,8 @@ class OffersController < ApplicationController
 
   # GET /offers/new
   def new
+    authenticate_supplier!
+    @supplier_offers = @requisition.offers.where(supplier_id: current_supplier.id)
     @offer = @requisition.offers.build
   end
 
@@ -27,14 +29,7 @@ class OffersController < ApplicationController
   def create
     @offer = @requisition.offers.build(offer_params)
     @offer.supplier = current_supplier
-
-    if offer_params[:recommended]
-      @requisition.offers.each do |offer|
-        offer.recommended = false
-        offer.save
-      end
-      @offer.recommended = true
-    end
+    @offer.recommended = true if @requisition.offers.count == 0
 
     respond_to do |format|
       if @offer.save
@@ -45,6 +40,27 @@ class OffersController < ApplicationController
         format.json { render json: @offer.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def set_as_recommended
+    if @requisition.offers.count > 1
+      @requisition.offers.each do |offer|
+        offer.recommended = false
+        offer.save
+      end
+      @offer.recommended = true
+      @offer.save
+    end
+    redirect_to new_requisition_offer_path(@requisition, @offer)
+  end
+
+  def set_selected
+    @offer.selected = true
+    @offer.requisition.active = false
+    @offer.requisition.pending = true
+    @offer.save
+    @offer.requisition.save
+    redirect_to requisition_path(@offer.requisition)
   end
 
   # PATCH/PUT /offers/1

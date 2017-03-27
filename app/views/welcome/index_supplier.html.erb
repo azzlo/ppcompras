@@ -16,19 +16,30 @@
       <table>
         <thead>
           <tr>
-            <th id="state">State</th>
-            <th id="dogs">Dogs</th>
-            <th id="cats">Cats</th>
-            <th id="rabbits">Rabbits</th>
+            <th width="120">Requisition</th>
+            <th>Description</th>
+            <th id="cats">???</th>
+            <th id="rabbits">???</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td id="california" headers="state">California</td>
-            <td headers="dogs california">3</td>
-            <td headers="cats california">1</td>
-            <td headers="rabbits california">10</td>
-          </tr>
+          <% if !@requisitions_to_suply.nil? %>
+            <% @requisitions_to_suply.each do |requisition| %>
+              <tr>
+                <td>
+                  <%= link_to requisition.number, requisition_path(requisition)%>
+                <td ><%= requisition.description %></td>
+                <td >1</td>
+                <td >10</td>
+              </tr>
+            <% end %>
+          <% else %>
+            <tr>
+              <td colspan="4">
+                <h3 class="text-center"> You don't have pending requisitions to suply.</h3>
+              </td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
@@ -37,20 +48,34 @@
 
   <div class="row">
     <div class="columns small-12">
-      <h6 class="text-center">Available Requisitons</h6>
+      <h6 class="text-center">You can offer in follow requisitions:</h6>
     </div>
     <div class="columns medium-10 medium-offset-1 small-12 ">
       <table>
         <thead>
           <tr>
-            <th id="Number">Number</th>
-            <th id="Description">Description</th>
+            <th></th>
+            <th width="100">Number</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <% @available_requisitions.each do |requisition| %>
             <tr>
-              <td ><%= link_to requisition.number, new_requisition_offer_path(requisition) %></td>
+              <td width="2em">
+                <% if requisition.offers.where("supplier_id = ?", current_supplier).take != nil %>
+                  <span data-tooltip aria-haspopup="true" class="has-tip right" data-disable-hover="false" tabindex="1" title="You have already offers.">
+                    <span class="badge success">
+                      <i class="fi-check icon-small"></i>
+                    </span>
+                  </span>
+                <% end %>
+              </td>
+                <td >
+                  <strong>
+                    <%= link_to requisition.number, new_requisition_offer_path(requisition) %>
+                  </strong>
+                </td>
               <td ><%= requisition.description %></td>
             </tr>
           <% end %>

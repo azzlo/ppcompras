@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323224623) do
+ActiveRecord::Schema.define(version: 20170327164313) do
 
   create_table "offers", force: :cascade do |t|
     t.float    "unit_pricing"
@@ -20,9 +20,10 @@ ActiveRecord::Schema.define(version: 20170323224623) do
     t.boolean  "recommended"
     t.integer  "credit_days"
     t.integer  "requisition_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "supplier_id"
+    t.boolean  "selected",       default: false
     t.index ["requisition_id"], name: "index_offers_on_requisition_id"
     t.index ["supplier_id"], name: "index_offers_on_supplier_id"
   end
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170323224623) do
     t.boolean  "active",         default: false
     t.boolean  "pending",        default: false
     t.boolean  "complete",       default: false
+    t.date     "received_at"
   end
 
   create_table "suppliers", force: :cascade do |t|

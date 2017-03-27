@@ -27,7 +27,7 @@ $(document).ready(function(){
     closeButton: true,
     closeIcon: '<i class="fi-x"></i>',
     minDate: 0,
-    dateFormat: 'dd-mm-YYYY'
+    format: 'dd-mm-yyyy'
   });
 
 });

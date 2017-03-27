@@ -6,6 +6,7 @@ class WelcomeController < ApplicationController
     else
       authenticate_user!
       @active_requisitions = Requisition.where(active: true)
+      @pending_requisitions = Requisition.where(pending: true)
       @available_requisitions = Requisition.where("active = ? AND pending = ? AND complete = ?", false, false, false)
     end
   end
@@ -18,6 +19,8 @@ class WelcomeController < ApplicationController
       authenticate_supplier!
 
       @available_requisitions = Requisition.where(active: true)
+      # @requisitions_to_suply = Requisition.where(pending: true)   offers.where(selected:true)
+      @requisitions_to_suply = Requisition.joins(:offers).where(offers: { selected: true, supplier_id: current_supplier.id }, requisitions: { pending: true})
     end
   end
 end

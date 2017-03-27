@@ -18,6 +18,22 @@
 
 @import 'foundation-icons';
 
+.icon-small{
+  font-size: 1em !important;
+}
+
+.icon-medium{
+  font-size: 1.5em !important;
+}
+
+.icon-large{
+  font-size: 2em !important;
+}
+
+.active-color{
+  color: #009f06;
+}
+
 .icono-medium{
   font-size: 50px;
   color: red;
@@ -37,6 +53,14 @@
 }
 .column-2{
   margin-bottom: 50px;
+}
+
+.fav-disable{
+  color: #b9b9b9;
+}
+
+.fav-enable{
+  color: #ff9a01;
 }
 
 html{
@@ -83,9 +107,19 @@ p{
 table{
   border: 1px solid #6C6E58;
   padding: 0.2em;
-  font-size: 12px;
+  font-size: .9em;
   border-radius: .6em;
   background-color:#9CA9AB;
+
+  tbody.disable{
+    tr{
+      background: #b6b4b4;
+      td{
+        color: #505050;
+      }
+    }
+  }
+
   tbody tr:hover{
     background:rgba(156, 169, 171 , .6);
   }
@@ -93,6 +127,30 @@ table{
     margin: 0;
     padding-top: .4em;
     padding-bottom: .4em;
+  }
+
+  .td-form{
+    color: white !important;
+    background: #005975;
+    padding-top: 2em;
+    &:hover{
+      background: #005975;
+    }
+    label{
+      color: #fffdcc;
+      line-height: .9em;
+      margin-bottom: .1em;
+    }
+    .button{
+      border-radius: .15em;
+      padding: .8em 2em;
+      box-shadow: 0 0 .5em white;
+    }
+  }
+
+  .thead-black{
+    background: #3d3d3d;
+    color: white;
   }
 }
 .button{
@@ -107,6 +165,14 @@ table{
 .tabla{
 border: 0px;
 }
+
+.flashmessage{
+  position: absolute;
+  top: 3em;
+  right: 5em;
+  left: 5em;
+}
+
 .footerr {
   background-color: #2F545D;
   color: #69bda7;
