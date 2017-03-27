@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :offers do
       member do
         get 'set_as_recommended'
+        post 'set_selected'
       end
     end
   end

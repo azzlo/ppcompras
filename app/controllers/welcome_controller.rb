@@ -6,6 +6,7 @@ class WelcomeController < ApplicationController
     else
       authenticate_user!
       @active_requisitions = Requisition.where(active: true)
+      @pending_requisitions = Requisition.where(pending: true)
       @available_requisitions = Requisition.where("active = ? AND pending = ? AND complete = ?", false, false, false)
     end
   end

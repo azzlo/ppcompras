@@ -107,7 +107,7 @@ p{
 table{
   border: 1px solid #6C6E58;
   padding: 0.2em;
-  font-size: 12px;
+  font-size: .9em;
   border-radius: .6em;
   background-color:#9CA9AB;
   tbody tr:hover{
@@ -117,6 +117,25 @@ table{
     margin: 0;
     padding-top: .4em;
     padding-bottom: .4em;
+  }
+
+  .td-form{
+    color: white !important;
+    background: #005975;
+    padding-top: 2em;
+    &:hover{
+      background: #005975;
+    }
+    label{
+      color: #fffdcc;
+      line-height: .9em;
+      margin-bottom: .1em;
+    }
+    .button{
+      border-radius: .15em;
+      padding: .8em 2em;
+      box-shadow: 0 0 .5em white;
+    }
   }
 
   .thead-black{

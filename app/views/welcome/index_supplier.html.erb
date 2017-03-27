@@ -52,8 +52,8 @@
         <thead>
           <tr>
             <th></th>
-            <th id="Number">Number</th>
-            <th id="Description">Description</th>
+            <th width="100">Number</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>
@@ -68,7 +68,11 @@
                   </span>
                 <% end %>
               </td>
-              <td ><%= link_to requisition.number, new_requisition_offer_path(requisition) %></td>
+                <td >
+                  <strong>
+                    <%= link_to requisition.number, new_requisition_offer_path(requisition) %>
+                  </strong>
+                </td>
               <td ><%= requisition.description %></td>
             </tr>
           <% end %>

@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
-  before_action :set_offer, only: [:show, :edit, :update, :destroy, :set_as_recommended]
-  before_action :set_requisition, only: [:new, :create, :set_as_recommended]
+  before_action :set_offer, only: [:show, :edit, :update, :destroy, :set_as_recommended, :set_selected]
+  before_action :set_requisition, only: [:new, :create, :set_as_recommended, :set_selected]
 
   # GET /offers
   # GET /offers.json
@@ -29,14 +29,7 @@ class OffersController < ApplicationController
   def create
     @offer = @requisition.offers.build(offer_params)
     @offer.supplier = current_supplier
-
-    if offer_params[:recommended]
-      @requisition.offers.each do |offer|
-        offer.recommended = false
-        offer.save
-      end
-      @offer.recommended = true if @requisition.offers.count == 1
-    end
+    @offer.recommended = true if @requisition.offers.count == 0
 
     respond_to do |format|
       if @offer.save
@@ -59,6 +52,15 @@ class OffersController < ApplicationController
       @offer.save
     end
     redirect_to new_requisition_offer_path(@requisition, @offer)
+  end
+
+  def set_selected
+    @offer.selected = true
+    @offer.requisition.active = false
+    @offer.requisition.pending = true
+    @offer.save
+    @offer.requisition.save
+    redirect_to requisition_path(@offer.requisition)
   end
 
   # PATCH/PUT /offers/1

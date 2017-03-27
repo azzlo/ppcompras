@@ -87,12 +87,13 @@
           <table style="background-color:#9CA9AB;" >
             <thead class="thead-black">
               <tr>
-                <th width="50px">Number</th>
+                <th width="50">Number</th>
+                <th width="20"></th>
                 <th width="85">Unit pricing</th>
                 <th width="40">Delivery</th>
-                <th width="60">Validity</th>
-                <th width="50">Credit</th>
-                <th width="150">Observations</th>
+                <th width="100">Validity</th>
+                <th width="80">Credit</th>
+                <th>Observations</th>
                 <th width="15">Actions</th>
               </tr>
             </thead>
@@ -106,6 +107,9 @@
                 <% else %>
                   <td></td>
                 <% end %>
+                <td>
+                  <%= "<i class='fi-star icon-medium fav-enable'></i>".html_safe if offer.recommended %>
+                </td>
                 <td> $ <%= offer.unit_pricing%>0</td>
                 <td> <%= offer.delivery_days%> days</td>
                 <td> <%= offer.validity%></td>
@@ -113,7 +117,7 @@
                 <td> <%= offer.observations%></td>
                 <td class="text-center">
                   <a class="button" href="#">PDF</a>
-                  <a class="button" href="#">Get for this Offer</a>
+                  <%= button_to "Take Offer", set_selected_requisition_offer_path(@requisition, offer), class: "button" %>
                 </td>
               </tr>
               <%end%>
