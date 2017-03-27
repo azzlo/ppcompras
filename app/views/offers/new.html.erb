@@ -50,24 +50,30 @@
         <table style="background-color:#9CA9AB;" >
           <thead class="thead-black">
             <tr>
+              <th>Recommended</th>
               <th>Unit pricing</th>
               <th>Delivery days</th>
               <th>Validity</th>
               <th>Credit days</th>
-              <th>Recommended</th>
               <th>Observations</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <% if !@requisition_clean.offers.blank? %>
-              <% @requisition_clean.offers.each do |offer| %>
+            <% if !@offers.nil? %>
+              <% @offers.each do |offer| %>
                 <tr>
+                  <td>
+                    <% if offer.recommended %>
+                      <i class="fi-star icon-medium fav-enable"></i>
+                    <% else %>
+                      <%= link_to "<i class='fi-star icon-medium fav-disable'></i>".html_safe, set_as_recommended_requisition_offer_path(@requisition, offer) %>
+                    <% end %>
+                  </td>
                   <td><%= offer.unit_pricing %></td>
                   <td><%= offer.delivery_days %></td>
                   <td><%= offer.validity %></td>
                   <td><%= offer.credit_days %></td>
-                  <td><%= offer.recommended %></td>
                   <td><%= offer.observations %></td>
                   <td class="text-center"><a class="button small" href="#">PDF</a></td>
                 </tr>

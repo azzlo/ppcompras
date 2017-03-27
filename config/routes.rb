@@ -9,7 +9,11 @@ Rails.application.routes.draw do
       post 'set_active_status'
       get 'show_supplier'
     end
-    resources :offers
+    resources :offers do
+      member do
+        get 'set_as_recommended'
+      end
+    end
   end
   devise_for :suppliers
   resources :suppliers
