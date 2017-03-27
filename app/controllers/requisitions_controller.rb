@@ -1,5 +1,5 @@
 class RequisitionsController < ApplicationController
-  before_action :set_requisition, only: [:show, :show_supplier, :edit, :update, :set_active_status, :destroy]
+  before_action :set_requisition, only: [:show, :show_supplier, :edit, :update, :set_active_status, :set_as_received, :destroy]
 
   # GET /requisitions
   # GET /requisitions.json
@@ -75,6 +75,15 @@ class RequisitionsController < ApplicationController
         format.json { render json: @requisition.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def set_as_received
+    @requisition.active = false
+    @requisition.pending = false
+    @requisition.complete = true
+    @requisition.received_at = Date.today
+    @requisition.save
+    redirect_to requisition_path(@requisition), notice: 'Congratulations! You was received the order.'
   end
 
   # DELETE /requisitions/1

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     member do
       post 'set_active_status'
       get 'show_supplier'
+      post 'set_as_received'
     end
     resources :offers do
       member do

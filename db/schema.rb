@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327011511) do
+ActiveRecord::Schema.define(version: 20170327164313) do
 
   create_table "offers", force: :cascade do |t|
     t.float    "unit_pricing"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170327011511) do
     t.boolean  "active",         default: false
     t.boolean  "pending",        default: false
     t.boolean  "complete",       default: false
+    t.date     "received_at"
   end
 
   create_table "suppliers", force: :cascade do |t|
