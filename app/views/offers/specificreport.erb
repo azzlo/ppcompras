@@ -61,16 +61,15 @@
             </tr>
           </thead>
           <tbody>
-            <% @requisition.offers.each do |offer| %>
+
             <tr>
-              <td><%= offer.supplier.number%></td>
-              <td><%= offer.supplier.name%></td>
-              <td><%= offer.delivery_days%></td>
-              <td><%= offer.unit_pricing%></td>
-              <td><%= offer.requisition.quantity * offer.unit_pricing%></td>
-              <td><%= offer.credit_days%></td>
+              <td><%= @offer.supplier.number%></td>
+              <td><%= @offer.supplier.name%></td>
+              <td><%= @offer.delivery_days%></td>
+              <td><%= @offer.unit_pricing%></td>
+              <td><%= @offer.requisition.quantity * @offer.unit_pricing%></td>
+              <td><%= @offer.credit_days%></td>
             </tr>
-            <%end%>
           </tbody>
           </tbody>
         </table>

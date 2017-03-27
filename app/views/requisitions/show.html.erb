@@ -128,7 +128,7 @@
                   <td> <%= offer.credit_days%> days</td>
                   <td> <%= offer.observations%></td>
                   <td class="text-center">
-                    <a class="button" href="#">PDF</a>
+                    <a class="button small" href='<%= "#{ offer_url(offer) }.pdf" %>'>PDF</a>
                     <%= button_to "Take Offer", set_selected_requisition_offer_path(@requisition, offer), class: "button" %>
                   </td>
                 </tr>
