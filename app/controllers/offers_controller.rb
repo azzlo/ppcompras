@@ -102,8 +102,8 @@ class OffersController < ApplicationController
     end
 
     def set_requisition
-      @requisition_clean = Requisition.find(params[:requisition_id])
-      @requisition = Requisition.find(params[:requisition_id])
+      @requisition_clean = @offer.requisition
+      @requisition = @offer.requisition
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
