@@ -40,9 +40,6 @@
         <div class="colums">
           <h4>My offers</h4>
         </div>
-        <div class="colums end">
-          <a class="button small" href="#">General Report</a>
-        </div>
       </div>
     </div>
     <div class="column small-12">
@@ -51,12 +48,11 @@
           <thead class="thead-black">
             <tr>
               <th width="50">Best</th>
-              <th width="70">Unit price</th>
-              <th width="75">Delivery</th>
-              <th width="70">Validity</th>
-              <th width="80">Credit</th>
+              <th width="100">Unit price</th>
+              <th width="100">Delivery</th>
+              <th width="150">Validity</th>
+              <th width="100">Credit</th>
               <th>Observations</th>
-              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -75,7 +71,6 @@
                   <td><%= offer.validity %></td>
                   <td><%= offer.credit_days %> days</td>
                   <td><%= offer.observations %></td>
-                  <td class="text-center"><a class="button small" href="#">PDF</a></td>
                 </tr>
               <% end %>
             <% else %>

@@ -54,6 +54,7 @@
             <tr>
               <th width="150">Number Supplier</th>
               <th width="150">Name Supplier</th>
+              <th width="20"></th>
               <th width="150">Delivery days</th>
               <th width="150">Unit pricing</th>
               <th width ="150">Total cost</th>
@@ -65,6 +66,7 @@
             <tr>
               <td><%= offer.supplier.number%></td>
               <td><%= offer.supplier.name%></td>
+              <td> <%= "<strong>X</strong>".html_safe if offer.recommended %></td>
               <td><%= offer.delivery_days%></td>
               <td><%= offer.unit_pricing%></td>
               <td><%= offer.requisition.quantity * offer.unit_pricing%></td>
