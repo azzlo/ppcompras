@@ -37,7 +37,7 @@ class OffersController < ApplicationController
     @supplier_offers = @requisition.offers.where(supplier_id: current_supplier.id)
     @offer = @requisition.offers.build(offer_params)
     @offer.supplier = current_supplier
-    @offer.recommended = true if @requisition.offers.count == 0
+    @offer.recommended = true if @requisition.offers.where(supplier_id: current_supplier.id).count == 0
 
     respond_to do |format|
       if @offer.save
@@ -102,8 +102,8 @@ class OffersController < ApplicationController
     end
 
     def set_requisition
-      @requisition_clean = @offer.requisition
-      @requisition = @offer.requisition
+      @requisition_clean = Requisition.find(params[:requisition_id])
+      @requisition = Requisition.find(params[:requisition_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

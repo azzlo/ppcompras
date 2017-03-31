@@ -25,7 +25,7 @@
             <% @requisitions_to_suply.each do |requisition| %>
               <tr>
                 <td>
-                  <%= link_to requisition.number, requisition_path(requisition)%>
+                  <%= link_to requisition.number, show_supplier_requisition_path(requisition)%>
                 <td ><%= requisition.description %></td>
               </tr>
             <% end %>

@@ -1,17 +1,17 @@
 <div class="primary-container">
   <div class="row">
     <div class="colums large-12">
-      <h6 class="text-center">Requisition Info</h6>
-      <table class="unstriped" style="background-color:#9CA9AB;" >
+      <h6>Requisition</h6>
+      <table>
         <thead>
           <tr>
-            <th width="100">Number</th>
-            <th width="150">Date</th>
-            <th width="150">Item</th>
-            <th width="150">Material</th>
-            <th width="150">Description</th>
-            <th width="150">Quantity</th>
-            <th width="150">Unit</th>
+            <th width="110">Number</th>
+            <th width="110">Date</th>
+            <th width="60">Item</th>
+            <th width="120">Material</th>
+            <th>Description</th>
+            <th width="50">Quantity</th>
+            <th width="50">Unit</th>
             <th width="150">Contact Person</th>
             <th width="150">Observations</th>
           </tr>
@@ -32,118 +32,92 @@
       </table>
     </div>
   </div>
-
   <br>
+  <hr>
   <div class="row">
-    <div class="column small-12">
-      <div class="row align-spaced">
-        <div class="colums">
-          <h6>My offers</h6>
+    <div class="columns small-10 small-offset-1">
+      <div class="row align-justify">
+        <div class="colums large-2">
+          <h6>Suppliers Offers</h6>
         </div>
-        <div class="colums end">
-          <a class="button" href="#">General Report</a>
+        <div class="colums large-2 text-right">
+          <a class="button small" href='<%= "#{ requisition_url(@requisition) }.pdf" %>'>General Report</a>
         </div>
       </div>
-    </div>
-    <div class="column small-12">
-      <div class="colums large-10 small-offset-1">
-        <table style="background-color:#9CA9AB;" >
-          <thead>
-            <tr>
-              <th>Number supplier</th>
-              <th>Unit pricing</th>
-              <th>Delivery days</th>
-              <th>Validity</th>
-              <th>Credit days</th>
-              <th>Observations</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>creo que no hicimos la relacion</td>
-              <td>500</td>
-              <td>5</td>
-              <td>2017/08/02</td>
-              <td>30</td>
-              <td>todo el material en existencia</td>
-              <td class="text-center"><a class="button" href="#">PDF</a></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="row">
-          <%= form_for(@offer) do |f| %>
-          <% if @offer.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
-
-              <ul>
-                <% offer.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
-
-
-          <div class="row">
-            <div class="column medium-2 align-self-bottom">
-              <div class="field">
-                <%= f.label :unit_pricing %>
-                <%= f.text_field :unit_pricing %>
-              </div>
-            </div>
-
-            <div class="column medium-1 align-self-bottom">
-              <div class="field">
-                <%= f.label :delivery_days %>
-                <%= f.number_field :delivery_days %>
-              </div>
-            </div>
-
-            <div class="column medium-2 align-self-bottom">
-              <div class="field">
-                <%= f.label :validity %>
-                <%= f.text_field :validity, class: "datepicker" %>
-              </div>
-            </div>
-            <div class="column medium-1 align-self-bottom">
-              <div class="field">
-                <%= f.label :credit_days %>
-                <%= f.number_field :credit_days %>
-              </div>
-            </div>
-
-            <div class="column medium-1 align-self-bottom">
-              <div class="field">
-                <%= f.label :recomm %>
-                <%= f.check_box :recommended %>
-              </div>
-            </div>
-
-            <div class="column medium-5 align-self-bottom">
-              <div class="field">
-                <%= f.label :observations %>
-                <%= f.text_area :observations %>
-              </div>
-            </div>
-
-            <div class="column medium-5 align-self-bottom">
-              <div class="field">
-                <%= f.label :requisition_id %>
-                <%= f.text_field :requisition_id %>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="actions">
-            <%= f.submit %>
-          </div>
-          <% end %>
+      <div class="row">
+        <div class="colums medium-12">
+          <table style="background-color:#9CA9AB;" >
+            <thead class="thead-black">
+              <tr>
+                <th width="50">Number</th>
+                <th width="20"></th>
+                <th width="85">Unit pricing</th>
+                <th width="40">Delivery</th>
+                <th width="100">Validity</th>
+                <th width="80">Credit</th>
+                <th>Observations</th>
+                <th width="15">Actions</th>
+              </tr>
+            </thead>
+              <% if @selected_offer.nil? %>
+              <tbody>
+                <% supplier_number = nil %>
+                <% @requisition.offers.where(selected: true).each do |offer| %>
+                <tr>
+                  <% if offer.supplier.number != supplier_number %>
+                    <td> <strong><%= offer.supplier.number %></strong><%=  %></td>
+                    <% supplier_number = offer.supplier.number %>
+                  <% else %>
+                    <td></td>
+                  <% end %>
+                  <td>
+                    <%= "<i class='fi-star icon-medium fav-enable'></i>".html_safe if offer.recommended %>
+                  </td>
+                  <td> $ <%= offer.unit_pricing%>0</td>
+                  <td> <%= offer.delivery_days%> days</td>
+                  <td> <%= offer.validity%></td>
+                  <td> <%= offer.credit_days%> days</td>
+                  <td> <%= offer.observations%></td>
+                  <td class="text-center">
+                    <a class="button small" href='<%= "#{ offer_url(offer) }.pdf" %>'>PDF</a>
+                    <%= button_to "Take Offer", set_selected_requisition_offer_path(@requisition, offer), class: "button" %>
+                  </td>
+                </tr>
+                <%end%>
+              </tbody>
+              <% else %>
+              <tbody class="disable">
+                <% supplier_number = nil %>
+                <% @requisition.offers.each do |offer| %>
+                <tr>
+                  <% if offer.supplier.number != supplier_number %>
+                    <td> <strong><%= offer.supplier.number %></strong><%=  %></td>
+                    <% supplier_number = offer.supplier.number %>
+                  <% else %>
+                    <td></td>
+                  <% end %>
+                  <td>
+                    <%= "<i class='fi-star icon-medium fav-enable'></i>".html_safe if offer.recommended %>
+                  </td>
+                  <td> $ <%= offer.unit_pricing%>0</td>
+                  <td> <%= offer.delivery_days%> days</td>
+                  <td> <%= offer.validity%></td>
+                  <td> <%= offer.credit_days%> days</td>
+                  <td> <%= offer.observations%></td>
+                  <td class="text-center">
+                    <% if offer.selected %>
+                      <span class="badge success">
+                        <i class="fi-check icon-small"></i>
+                      </span>
+                    <% end %>
+                  </td>
+                </tr>
+                <%end%>
+                </tbody>
+              <% end %>
+            </tbody>
+          </table>
         </div>
-
       </div>
     </div>
   </div>
