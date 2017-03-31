@@ -27,7 +27,8 @@ class RequisitionsController < ApplicationController
 
   # GET /requisitions/new
   def new
-    @requisition = Requisition.new
+    number = Requisition.last.id + 1
+    @requisition = Requisition.new(material: "hola#{number}")
   end
 
   # GET /requisitions/1/edit

@@ -37,7 +37,7 @@ class OffersController < ApplicationController
     @supplier_offers = @requisition.offers.where(supplier_id: current_supplier.id)
     @offer = @requisition.offers.build(offer_params)
     @offer.supplier = current_supplier
-    @offer.recommended = true if @requisition.offers.count == 0
+    @offer.recommended = true if @requisition.offers.where(supplier_id: current_supplier.id).count == 0
 
     respond_to do |format|
       if @offer.save
