@@ -91,7 +91,10 @@
 
                   <ul>
                     <% @offer.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
+                    <div class="be-red white top_space">
+                      <%= message %>
+                    </div>
+
                     <% end %>
                   </ul>
                 </div>
