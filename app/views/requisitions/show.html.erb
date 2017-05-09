@@ -129,7 +129,7 @@
                   <td> <%= offer.observations%></td>
                   <td class="text-center">
                     <a class="button small" href='<%= "#{ offer_url(offer) }.pdf" %>'>PDF</a>
-                    <%= button_to "Take Offer", set_selected_requisition_offer_path(@requisition, offer), class: "button" %>
+                    <%= button_to "Take Offer", set_selected_requisition_offer_path(@requisition, offer), class: "button", data: {confirm: "Are you sure to select this offer?"} %>
                   </td>
                 </tr>
                 <%end%>

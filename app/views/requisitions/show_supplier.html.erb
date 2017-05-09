@@ -88,14 +88,8 @@
               <% else %>
               <tbody class="disable">
                 <% supplier_number = nil %>
-                <% @requisition.offers.each do |offer| %>
+                <% @suplier_requisitions.offers.each do |offer| %>
                 <tr>
-                  <% if offer.supplier.number != supplier_number %>
-                    <td> <strong><%= offer.supplier.number %></strong><%=  %></td>
-                    <% supplier_number = offer.supplier.number %>
-                  <% else %>
-                    <td></td>
-                  <% end %>
                   <td>
                     <%= "<i class='fi-star icon-medium fav-enable'></i>".html_safe if offer.recommended %>
                   </td>
