@@ -54,7 +54,6 @@
             <th width="110">Unit Price</th>
             <th width="50">Delivery</th>
             <th width="100">Validity</th>
-            <th width="80">Credit</th>
             <th>Observations</th>
             <th width="150">Contact Person</th>
           </tr>
@@ -66,7 +65,6 @@
               <td> <%= @selected_offer.unit_pricing%></td>
               <td> <%= @selected_offer.delivery_days%> days</td>
               <td> <%= @selected_offer.validity%></td>
-              <td> <%= @selected_offer.credit_days%> days</td>
               <td> <%= @selected_offer.observations%></td>
               <td> <%= @selected_offer.supplier.contact%></td>
             </tr>
@@ -103,7 +101,6 @@
                 <th width="85">Unit pricing</th>
                 <th width="40">Delivery</th>
                 <th width="100">Validity</th>
-                <th width="80">Credit</th>
                 <th>Observations</th>
                 <th width="15">Actions</th>
               </tr>
@@ -125,7 +122,6 @@
                   <td> $ <%= offer.unit_pricing%>0</td>
                   <td> <%= offer.delivery_days%> days</td>
                   <td> <%= offer.validity%></td>
-                  <td> <%= offer.credit_days%> days</td>
                   <td> <%= offer.observations%></td>
                   <td class="text-center">
                     <a class="button small" href='<%= "#{ offer_url(offer) }.pdf" %>'>PDF</a>
@@ -151,7 +147,6 @@
                   <td> $ <%= offer.unit_pricing%>0</td>
                   <td> <%= offer.delivery_days%> days</td>
                   <td> <%= offer.validity%></td>
-                  <td> <%= offer.credit_days%> days</td>
                   <td> <%= offer.observations%></td>
                   <td class="text-center">
                     <% if offer.selected %>
