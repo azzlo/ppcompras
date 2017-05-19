@@ -73,6 +73,12 @@ class SuppliersController < ApplicationController
       @supplier = Supplier.find(params[:id])
     end
 
+    def data_validation
+      if current_supplier.data_validation
+        redirect_to myaccount_supplier_path
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def supplier_params
       params.require(:supplier).permit(:name, :address, :city, :country, :postal_code, :phone, :email, :category, :contact, :observations, :bank, :account_number, :number_branch_bank, :region, :last_tax_declaration, :rfc, :account_status, :constitutive_act, :policies)
