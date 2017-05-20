@@ -1,10 +1,11 @@
 class SuppliersController < ApplicationController
-  before_action :set_supplier, only: [:show, :edit, :update, :destroy]
+  before_action :set_supplier, only: [:show, :edit, :update, :destroy, :authorize_data]
 
   # GET /suppliers
   # GET /suppliers.json
   def index
     :authenticate_user!
+    redirect_to myaccount_supplier_path(current_supplier) if supplier_signed_in?
     @suppliers = Supplier.all
   end
 
@@ -15,6 +16,15 @@ class SuppliersController < ApplicationController
 
   def myaccount
     @supplier = current_supplier
+  end
+
+  def authorize_data
+    @supplier.data_validation = false
+    if @supplier.save
+      redirect_to suppliers_url, notice: 'Supplier data was validated. Now the supplier have full access to system'
+    else
+      redirect_to suppliers_url, alert: 'The system can\'t execute operation, try again.'
+    end
   end
 
   # GET /suppliers/new

@@ -18,7 +18,11 @@ Rails.application.routes.draw do
     end
   end
   devise_for :suppliers
-  resources :suppliers
+  resources :suppliers do
+    member do
+      get 'authorize_data'
+    end
+  end
   resource :supplier do
     collection do
       get 'myaccount'

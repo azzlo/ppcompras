@@ -1,97 +1,122 @@
-<p>
-  <strong>Name:</strong>
-  <%= @supplier.name %>
-</p>
+<div class="row">
+  <div class="column medium-12">
+    
+    <p>
+      <strong>Name:</strong>
+      <%= @supplier.name %>
+    </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @supplier.address %>
-</p>
 
-<p>
-  <strong>City:</strong>
-  <%= @supplier.city %>
-</p>
+    <div class="row">
+      <div class="column">
+        <p>
+          <strong>Address:</strong>
+          <%= @supplier.address %>
+        </p>
+      </div>
+      <div class="column">
+        <p>
+          <strong>City:</strong>
+          <%= @supplier.city %>
+        </p>
+      </div>
+      <div class="column">
+        <p>
+          <strong>Country:</strong>
+          <%= @supplier.country %>
+        </p>
+      </div>
+      <div class="column">
+        <p>
+          <strong>Postal code:</strong>
+          <%= @supplier.postal_code %>
+        </p>
+      </div>
+    </div>
 
-<p>
-  <strong>Country:</strong>
-  <%= @supplier.country %>
-</p>
+    <p>
+      <strong>Phone:</strong>
+      <%= @supplier.phone %>
+    </p>
 
-<p>
-  <strong>Postal code:</strong>
-  <%= @supplier.postal_code %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @supplier.email %>
+    </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @supplier.phone %>
-</p>
+    <p>
+      <strong>Category:</strong>
+      <%= @supplier.category %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @supplier.email %>
-</p>
+    <p>
+      <strong>Contact:</strong>
+      <%= @supplier.contact %>
+    </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @supplier.category %>
-</p>
+    <p>
+      <strong>Observations:</strong>
+      <%= @supplier.observations %>
+    </p>
 
-<p>
-  <strong>Contact:</strong>
-  <%= @supplier.contact %>
-</p>
+    <p>
+      <strong>Bank:</strong>
+      <%= @supplier.bank %>
+    </p>
 
-<p>
-  <strong>Observations:</strong>
-  <%= @supplier.observations %>
-</p>
+    <p>
+      <strong>Account number:</strong>
+      <%= @supplier.account_number %>
+    </p>
 
-<p>
-  <strong>Bank:</strong>
-  <%= @supplier.bank %>
-</p>
+    <p>
+      <strong>Number branch bank:</strong>
+      <%= @supplier.number_branch_bank %>
+    </p>
 
-<p>
-  <strong>Account number:</strong>
-  <%= @supplier.account_number %>
-</p>
+    <p>
+      <strong>Region:</strong>
+      <%= @supplier.region %>
+    </p>
+    
 
-<p>
-  <strong>Number branch bank:</strong>
-  <%= @supplier.number_branch_bank %>
-</p>
+    <div class="row">
+      <div class="column text-center">
+        <%= link_to '<i class="fi-download icon-large"></i> Download'.html_safe, @supplier.last_tax_declaration.url, target: '_blank' if @supplier.last_tax_declaration.url != nil %>
+          <%= '<i class="fi-prohibited icon-large" style="color: #9B9B9B"></i> no file'.html_safe if @supplier.last_tax_declaration.url.nil?%>
+        <p><strong>Last tax declaration</strong></p>
+      </div>
+      <div class="column text-center">
+        <%= link_to '<i class="fi-download icon-large"></i> Download'.html_safe, @supplier.rfc.url, target: '_blank' if @supplier.rfc.url != nil %>
+        <%= '<i class="fi-prohibited icon-large" style="color: #9B9B9B"></i> no file'.html_safe if @supplier.rfc.url.nil?%>
+        <p><strong>RFC</strong></p>
+      </div>
+      <div class="column text-center">
+        <%= link_to '<i class="fi-download icon-large"></i> Download'.html_safe, @supplier.account_status.url, target: '_blank' if @supplier.account_status.url != nil %>
+        <%= '<i class="fi-prohibited icon-large" style="color: #9B9B9B"></i> no file'.html_safe if @supplier.account_status.url.nil?%>
+        <p>
+          <strong>Account status</strong>
+        </p>
+      </div>
+      <div class="column text-center">
+        <%= '<i class="fi-download icon-large"></i> Download'.html_safe if @supplier.constitutive_act.url != nil %>
+        <%= '<i class="fi-prohibited icon-large" style="color: #9B9B9B"></i> no file'.html_safe if @supplier.constitutive_act.url.nil?%>
+        <p>
+          <strong>Constitutive act</strong>
+        </p>
+      </div>
+      <div class="column text-center">
+        <%= link_to '<i class="fi-download icon-large"></i> Download'.html_safe, @supplier.policies.url, target: '_blank' if @supplier.policies.url != nil %>
+        <%= '<i class="fi-prohibited icon-large" style="color: #9B9B9B"></i> no file'.html_safe if @supplier.policies.url.nil?%>
+        <p>
+          <strong>Policies</strong>
+        </p>
+      </div>
+    </div>
 
-<p>
-  <strong>Region:</strong>
-  <%= @supplier.region %>
-</p>
 
-<p>
-  <strong>Last tax declaration:</strong>
-  <%= @supplier.last_tax_declaration %>
-</p>
-
-<p>
-  <strong>Rfc:</strong>
-  <%= @supplier.rfc %>
-</p>
-
-<p>
-  <strong>Account status:</strong>
-  <%= @supplier.account_status %>
-</p>
-
-<p>
-  <strong>Constitutive act:</strong>
-  <%= @supplier.constitutive_act %>
-</p>
-
-<p>
-  <strong>Policies:</strong>
-  <%= @supplier.policies %>
-</p>
-
-<%= link_to 'Edit', edit_supplier_path(@supplier) %> |
-<%= link_to 'Back', suppliers_path %>
+    <%= link_to '<i class="fi-arrow-left"></i> Back'.html_safe, suppliers_path, class: "button" %>
+    <%= link_to '<i class="fi-page-edit"></i> Edit'.html_safe, edit_supplier_path(@supplier), class: "button" %>
+    <%= link_to '<i class="fi-check"></i><i class="fi-check"></i> Authorize Data'.html_safe, authorize_data_supplier_path(@supplier), class: "button success" %>
+  </div>
+</div>

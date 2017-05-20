@@ -1,5 +1,4 @@
 <div class="primary-container">
-<p id="notice"><%= notice %></p>
 
 <h4>Suppliers</h4>
 
@@ -7,6 +6,7 @@
 <table>
   <thead class="thead-black">
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Address</th>
       <th>City</th>
@@ -33,6 +33,14 @@
   <tbody>
     <% @suppliers.each do |supplier| %>
       <tr>
+        <td>
+          <% if supplier.data_validation %>
+            <%= link_to '<i class="fi-sheriff-badge icon-medium" style="color: #E75244"></i>'.html_safe, supplier %>
+          <% else %> 
+            <%= link_to '<i class="fi-check icon-medium" style="color: #32C500"></i>'.html_safe, supplier %>
+          <% end %>
+          
+        </td>
         <td><%= supplier.name %></td>
         <td><%= supplier.address %></td>
         <td><%= supplier.city %></td>
